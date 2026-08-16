@@ -812,3 +812,12 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
 - Remove the shared lavender gradient from the Page 3 timer action wrapper.
 - Make the wrapper background transparent so `BG3.png` continues naturally behind and around the timer button.
 - Keep the timer button fill, purple border, shadow, size, position, and interaction states unchanged.
+
+---
+
+## 31. Shared Back Button Asset Replacement — 2026-08-17
+
+- Save the supplied glossy purple back-button artwork as `/public/assets/ui/back-button.png`.
+- Replace the generated circle and chevron in the shared `TopBar` with this image on every route that renders a back button.
+- Render the artwork at `40 × 40px` while preserving the existing route destinations, accessible label, and `42px` top-bar grid slot.
+- Remove the generated border, background, shadow, and chevron alignment because those visual details are already part of the supplied artwork.

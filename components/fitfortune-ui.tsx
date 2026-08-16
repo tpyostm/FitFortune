@@ -25,7 +25,9 @@ export function MagicDust() {
 export function TopBar({ backHref = "/", label = "FITFORTUNE" }: { backHref?: string; label?: string }) {
   return (
     <nav className="top-bar" aria-label="เมนูหน้า">
-      <a className="back-button" href={backHref} aria-label="ย้อนกลับ"><span aria-hidden="true">‹</span></a>
+      <a className="back-button" href={backHref} aria-label="ย้อนกลับ">
+        <img src="/assets/ui/back-button.png" alt="" aria-hidden="true" />
+      </a>
       <span className="top-label">{label}</span>
       <span className="top-bar-spacer" />
     </nav>

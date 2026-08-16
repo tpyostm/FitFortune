@@ -236,19 +236,16 @@ a, button { touch-action: manipulation; }
 .top-label { color: var(--brown-900); text-align: center; font-size: 18px; line-height: 1.2; font-weight: 900; }
 .top-bar-spacer { display: block; }
 .back-button {
-  width: 36px;
-  height: 36px;
-  display: grid;
-  place-items: center;
-  color: var(--brown-700);
+  width: 40px;
+  height: 40px;
+  display: block;
   text-decoration: none;
-  border: 1px solid #c8a5e6;
+  border: 0;
   border-radius: 50%;
-  background: rgba(255,253,247,.82);
-  box-shadow: 0 3px 8px rgba(79,35,117,.15), inset 0 1px white;
-  font: 28px/1 Arial,sans-serif;
+  background: transparent;
+  box-shadow: none;
 }
-.back-button > span { display: block; line-height: 1; transform: translateX(1px); }
+.back-button > img { width: 100%; height: 100%; display: block; object-fit: contain; }
 .page-content { width: 100%; padding: 8px 17px 24px; flex: 1; }
 .white-panel { background: rgba(255,252,255,.88); border: 1px solid var(--line); border-radius: 15px; box-shadow: 0 5px 15px rgba(91,45,130,.09), inset 0 1px white; backdrop-filter: blur(4px); }
 .bottom-action {
