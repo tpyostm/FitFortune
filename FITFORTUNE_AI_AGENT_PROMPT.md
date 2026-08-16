@@ -713,3 +713,15 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
 
 - The purple social card is stored at `/public/og-v3.png`.
 - Open Graph and X metadata use this image with the exact text `FITFORTUNE` and `เปิดดวง ฟิตสุขภาพ`.
+
+---
+
+## 22. Page 1 Copy and Focus Update — 2026-08-17
+
+- Main headline: `ดวงวันนี้` / `จะดีไหมนะ?`
+- Supporting copy: `เปิดไพ่รับคำแนะนำดีๆ` / `เพื่อสุขภาพคุณวันนี้`
+- Remove the separate bottom CTA button completely.
+- The fortune card itself is the only interactive opening control.
+- Enlarge and center the stacked card, orbit, pedestal, and glow so the opening target is immediately obvious on first load.
+- Show a small non-button cue beneath the card: `แตะไพ่เพื่อเปิดดวง`.
+- Tapping the card retains the glow, flip animation, and transition to `/today`.

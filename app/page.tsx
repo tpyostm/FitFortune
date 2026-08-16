@@ -23,8 +23,8 @@ export default function Home() {
 
         <header className="landing-copy">
           <p className="eyebrow">FITFORTUNE</p>
-          <h1>MUTELO<br />PICK A CARD</h1>
-          <p>สุขภาพดีก็เริ่มที่การ “เลือก”<br />ลุ้นรับคำแนะนำดี ๆ สำหรับวันนี้</p>
+          <h1>ดวงวันนี้<br />จะดีไหมนะ?</h1>
+          <p>เปิดไพ่รับคำแนะนำดีๆ<br />เพื่อสุขภาพคุณวันนี้</p>
         </header>
 
         <div className="landing-card-scene">
@@ -50,12 +50,8 @@ export default function Home() {
             </span>
           </button>
           <span className="card-pedestal" aria-hidden="true"><i /><b /></span>
+          <span className="card-tap-label" aria-hidden="true">✦ {opening ? "กำลังเปิดดวง..." : "แตะไพ่เพื่อเปิดดวง"} ✦</span>
         </div>
-
-        <button className="tap-hint" type="button" onClick={openFortune}>
-          <span>{opening ? "กำลังพลิกไพ่..." : "กดแล้วพลิกไพ่เลย!"}</span>
-          <span className="tap-hand" aria-hidden="true">☝</span>
-        </button>
       </section>
     </main>
   );

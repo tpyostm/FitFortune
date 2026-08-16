@@ -104,7 +104,7 @@ a, button { touch-action: manipulation; }
 
 /* Landing */
 .landing-canvas {
-  padding: 30px 24px 100px;
+  padding: 28px 24px 34px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -124,35 +124,34 @@ a, button { touch-action: manipulation; }
 .landing-canvas::before { width: 310px; height: 310px; top: 310px; left: -215px; }
 .landing-canvas::after { width: 290px; height: 290px; top: 360px; right: -210px; }
 .landing-copy { text-align: center; z-index: 6; }
-.eyebrow { margin: 0 0 14px; color: #7e3fb5; letter-spacing: .28em; font-size: 9px; font-weight: 900; }
+.eyebrow { margin: 0 0 10px; color: #7e3fb5; letter-spacing: .28em; font-size: 9px; font-weight: 900; }
 .landing-copy h1 {
   margin: 0;
   color: #4e176b;
   font-family: "Arabica", Tahoma, sans-serif;
-  font-size: clamp(37px, 10.2vw, 41px);
-  line-height: 1.1;
+  font-size: clamp(45px, 12.4vw, 51px);
+  line-height: 1.02;
   letter-spacing: .015em;
   font-weight: 900;
   transform: rotate(-1deg);
   text-shadow: 0 2px 0 #fff, 0 4px 0 rgba(101,52,150,.1);
 }
-.landing-copy p:last-child { margin: 9px 0 0; color: #5e3477; font-size: 12px; line-height: 1.5; }
+.landing-copy p:last-child { margin: 12px 0 0; color: #5e3477; font-size: 15px; line-height: 1.38; }
 .landing-card-scene {
   width: 100%;
-  height: 330px;
+  height: auto;
   flex: 1;
-  min-height: 320px;
-  max-height: 340px;
+  min-height: 455px;
   position: relative;
   display: grid;
   place-items: start center;
-  padding-top: 8px;
+  padding-top: 24px;
 }
-.landing-orbit { width: 292px; height: 292px; position: absolute; z-index: 1; top: -4px; left: 50%; transform: translateX(-50%); object-fit: contain; opacity: .47; pointer-events: none; }
+.landing-orbit { width: 340px; height: 340px; position: absolute; z-index: 1; top: 5px; left: 50%; transform: translateX(-50%); object-fit: contain; opacity: .52; pointer-events: none; }
 .landing-sparkle-sheet { opacity: .13; }
 .fortune-pick {
-  width: 174px;
-  height: 260px;
+  width: 214px;
+  height: 320px;
   border: 0;
   background: transparent;
   padding: 0;
@@ -181,49 +180,44 @@ a, button { touch-action: manipulation; }
 .card-shadow-layer {
   position: absolute;
   z-index: 2;
-  top: 35px;
-  width: 145px;
-  height: 218px;
+  top: 58px;
+  width: 178px;
+  height: 267px;
   border-radius: 19px;
   border: 2px solid #7f44b4;
   background: linear-gradient(145deg, #f7edff, #b889e6);
   box-shadow: 0 13px 18px rgba(71,29,111,.22);
 }
-.card-shadow-left { left: calc(50% - 100px); transform: rotate(-8deg); }
-.card-shadow-right { right: calc(50% - 101px); transform: rotate(8deg); background: linear-gradient(145deg, #fff8ff, #8e5fbd); }
-.card-pedestal { position: absolute; z-index: 1; top: 245px; width: 235px; height: 49px; border-radius: 50%; background: linear-gradient(180deg,#ead7ff,#b988e9); box-shadow: 0 9px 0 #a875d0,0 15px 20px rgba(79,38,121,.18),inset 0 3px rgba(255,255,255,.75); }
+.card-shadow-left { left: calc(50% - 123px); transform: rotate(-8deg); }
+.card-shadow-right { right: calc(50% - 124px); transform: rotate(8deg); background: linear-gradient(145deg, #fff8ff, #8e5fbd); }
+.card-pedestal { position: absolute; z-index: 1; top: 315px; width: 282px; height: 55px; border-radius: 50%; background: linear-gradient(180deg,#ead7ff,#b988e9); box-shadow: 0 9px 0 #a875d0,0 15px 20px rgba(79,38,121,.18),inset 0 3px rgba(255,255,255,.75); }
 .card-pedestal i { position: absolute; inset: 8px 24px 16px; border-radius: 50%; border: 1px solid rgba(139,83,25,.18); }
 .card-pedestal b { position: absolute; width: 310px; height: 28px; left: -20px; bottom: -23px; border-radius: 50%; background: rgba(204,162,246,.36); filter: blur(4px); }
-.leaf-silhouette { position: absolute; z-index: 0; bottom: 38px; width: 75px; height: 140px; opacity: .26; }
+.leaf-silhouette { position: absolute; z-index: 0; bottom: 55px; width: 75px; height: 140px; opacity: .22; }
 .leaf-silhouette::before,.leaf-silhouette::after { content: ""; position: absolute; width: 30px; height: 66px; border-radius: 100% 0 100% 0; background: #a16cca; }
 .leaf-silhouette::before { top: 22px; left: 25px; transform: rotate(-34deg); box-shadow: 31px 43px 0 #a16cca; }
 .leaf-silhouette::after { top: 61px; left: 2px; transform: rotate(24deg); }
 .leaf-left { left: 12px; transform: rotate(-17deg); }
 .leaf-right { right: 4px; transform: scaleX(-1) rotate(-10deg); }
-.tap-hint {
-  width: min(100%,310px);
-  min-height: 58px;
-  margin-top: 0;
+.card-tap-label {
+  min-height: 36px;
+  padding: 7px 18px;
   position: absolute;
-  z-index: 8;
+  z-index: 7;
   left: 50%;
-  bottom: 31px;
+  top: 393px;
   transform: translateX(-50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 14px;
-  color: white;
-  border: 1px solid #63308b;
-  border-radius: 25px;
-  background: linear-gradient(180deg,#9c5fd1,#70409c);
-  box-shadow: 0 7px 0 #542775,0 13px 23px rgba(72,28,104,.25),inset 0 2px rgba(255,255,255,.38);
-  font-size: 15px;
+  color: #542071;
+  white-space: nowrap;
+  border: 1px solid rgba(121,67,166,.24);
+  border-radius: 999px;
+  background: rgba(255,248,255,.66);
+  box-shadow: 0 6px 18px rgba(75,30,111,.13),inset 0 1px rgba(255,255,255,.82);
+  backdrop-filter: blur(5px);
+  font-size: 14px;
   font-weight: 900;
-  cursor: pointer;
+  animation: tapLabelPulse 2.2s ease-in-out infinite;
 }
-.tap-hand { color: #fff1b4; font-size: 25px; animation: tap 1.2s ease-in-out infinite; }
-.tap-hint:active { transform: translateX(-50%) translateY(3px); }
 
 /* Shared inner pages */
 .inner-canvas { display: flex; flex-direction: column; isolation: isolate; }
@@ -280,7 +274,7 @@ a, button { touch-action: manipulation; }
   font-weight: 900;
 }
 .primary-button > span:last-child { position: absolute; right: 18px; font: 26px Arial,sans-serif; }
-.primary-button:active, .tap-hint:active { transform: translateY(3px); box-shadow: 0 2px 0 #6f389a,0 5px 10px rgba(82,38,116,.19); }
+.primary-button:active { transform: translateY(3px); box-shadow: 0 2px 0 #6f389a,0 5px 10px rgba(82,38,116,.19); }
 
 /* Today */
 .today-content { display: flex; flex-direction: column; align-items: stretch; padding-top: 0; padding-bottom: 83px; }
@@ -394,8 +388,8 @@ button.complete-action-card { width: 100%; }
 
 @keyframes cardFloat { 0%,100% { transform: translateY(3px) rotate(-1deg); } 50% { transform: translateY(-8px) rotate(1deg); } }
 @keyframes breathe { 0%,100% { transform: scale(.92); opacity: .4; } 50% { transform: scale(1.08); opacity: .85; } }
+@keyframes tapLabelPulse { 0%,100% { transform: translateX(-50%) scale(.97); opacity: .78; } 50% { transform: translateX(-50%) scale(1.02); opacity: 1; } }
 @keyframes twinkle { 0%,100% { opacity: .25; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.2) rotate(38deg); } }
-@keyframes tap { 0%,100% { transform: translateY(0) rotate(-13deg); } 50% { transform: translateY(-5px) rotate(-13deg); } }
 @keyframes mascotBounce { 0%,100% { transform: translateY(2px); } 50% { transform: translateY(-6px); } }
 @keyframes celebrationHop { 0%,100% { transform: translateY(3px) rotate(-7deg); } 50% { transform: translateY(-8px) rotate(-2deg); } }
 @keyframes openingGlow { 0% { transform: scale(.85); } 55% { transform: scale(1.4); opacity: 1; } 100% { transform: scale(1.8); opacity: 0; } }
@@ -407,11 +401,17 @@ button.complete-action-card { width: 100%; }
 }
 @media (max-height: 720px) and (max-width: 559px) {
   .phone-canvas { min-height: 760px; }
-  .landing-canvas { padding-top: 25px; }
-  .landing-copy h1 { font-size: 37px; }
-  .landing-card-scene { height: 375px; min-height: 375px; }
-  .fortune-pick { width: 185px; height: 278px; }
-  .card-pedestal { top: 270px; }
+  .landing-canvas { padding: 22px 20px 28px; }
+  .landing-copy h1 { font-size: 43px; }
+  .landing-copy p:last-child { font-size: 14px; }
+  .landing-card-scene { height: 430px; min-height: 430px; }
+  .landing-orbit { width: 315px; height: 315px; }
+  .fortune-pick { width: 198px; height: 296px; }
+  .card-shadow-layer { width: 165px; height: 248px; top: 55px; }
+  .card-shadow-left { left: calc(50% - 114px); }
+  .card-shadow-right { right: calc(50% - 115px); }
+  .card-pedestal { top: 290px; width: 260px; }
+  .card-tap-label { top: 370px; }
   .top-bar { min-height: 56px; padding-top: 8px; }
   .timer-visual-wrap { height: 380px; }
   .timer-ring { width: 205px; height: 205px; }
