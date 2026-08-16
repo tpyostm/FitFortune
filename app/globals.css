@@ -332,7 +332,7 @@ a, button { touch-action: manipulation; }
 .timer-button > span:last-child { position: static; font-size: inherit; font-family: inherit; }
 .timer-status { margin: 8px 0 0; text-align: center; font-size: 9px; }
 .today-page .bottom-action { position: absolute; left: 0; right: 0; bottom: 32px; }
-.timer-page .bottom-action { position: absolute; left: 0; right: 0; bottom: 72px; }
+.timer-page .bottom-action { position: absolute; left: 0; right: 0; bottom: calc(72px + max(0px, 100svh - 812px)); }
 .challenge-page .bottom-action { position: absolute; left: 0; right: 0; bottom: 0; }
 
 /* Complete */

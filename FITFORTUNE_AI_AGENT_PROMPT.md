@@ -745,6 +745,6 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
 
 ## 24. Page 3 Timer Control Position Update — 2026-08-17
 
-- Move the timer control group upward by `72px` so the gap below the exercise instructions is approximately `38px` on the mobile layout.
+- Move the timer control group upward by a base `72px`, plus the viewport height above the `812px` reference canvas, so the gap below the exercise instructions stays approximately `38px` on taller mobile screens.
 - Apply the same position to all timer states: `เริ่มจับเวลา`, `หยุดชั่วคราว`, and `ทำต่อ`.
 - Keep the existing timer logic, button size, copy, and visual style unchanged.
