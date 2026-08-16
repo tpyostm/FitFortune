@@ -725,3 +725,18 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
 - Enlarge and center the stacked card, orbit, pedestal, and glow so the opening target is immediately obvious on first load.
 - Show a small non-button cue beneath the card: `แตะไพ่เพื่อเปิดดวง`.
 - Tapping the card retains the glow, flip animation, and transition to `/today`.
+
+---
+
+## 23. Page 2 Content and Balance Update — 2026-08-17
+
+- Lock the displayed day label to `วันเสาร์`.
+- Display the focus area as `“ไหล่”` and add more vertical space after `ดวงจะหนักที่`.
+- Change the task second line from `พร้อมแชร์ให้เพื่อน 5 คน` to `เพื่อแก้เคล็ด`.
+- Replace the equipment recommendations with three supplied production icons:
+  - `/public/assets/recommendations/Rec1.png` → `ร่างกาย`
+  - `/public/assets/recommendations/Rec2.png` → `หัวใจ`
+  - `/public/assets/recommendations/Rec3.png` → `วิญญาณ`
+- Change the recommendation heading to `คำแนะนำ 3 ด้าน`.
+- Simplify the video text to `ท่าหมุนไหล่คลายปวดด` and scale it to fill the remaining text area cleanly.
+- Move the `เริ่มเลย!` button upward from the bottom edge for better visual balance.

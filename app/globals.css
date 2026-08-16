@@ -277,12 +277,12 @@ a, button { touch-action: manipulation; }
 .primary-button:active { transform: translateY(3px); box-shadow: 0 2px 0 #6f389a,0 5px 10px rgba(82,38,116,.19); }
 
 /* Today */
-.today-content { display: flex; flex-direction: column; align-items: stretch; padding-top: 0; padding-bottom: 83px; }
+.today-content { display: flex; flex-direction: column; align-items: stretch; padding-top: 0; padding-bottom: 115px; }
 .fortune-heading { text-align: center; }
 .day-chip { width: 165px; margin: 0 auto 9px; padding: 8px 13px; color: #653087; background: rgba(255,255,255,.9); border-radius: 12px; box-shadow: 0 5px 13px rgba(91,43,126,.11); font-size: 13px; font-weight: 900; }
 .fortune-heading h1 { margin: 0; color: #4f1d68; font-size: 19px; line-height: 1.25; }
-.fortune-heading > p:not(.day-chip) { margin: 8px 0 0; font-size: 15px; font-weight: 800; }
-.fortune-word { display: block; margin-top: 0; color: #8c4fc1; font-size: 45px; line-height: 1; text-shadow: 0 2px 0 #e8d2fb; }
+.fortune-heading > p:not(.day-chip) { margin: 15px 0 8px; font-size: 15px; font-weight: 800; }
+.fortune-word { display: block; margin-top: 4px; color: #8c4fc1; font-size: 45px; line-height: 1; text-shadow: 0 2px 0 #e8d2fb; }
 .fortune-reveal { height: 150px; display: grid; place-items: center; position: relative; }
 .fortune-mascot { width: 150px; height: 150px; position: relative; z-index: 2; }
 .fortune-accent { position: absolute; top: 55px; color: #8950c2; font-size: 36px; font-weight: 900; }
@@ -297,10 +297,13 @@ a, button { touch-action: manipulation; }
 .material-list { display: flex; justify-content: center; gap: 15px; }
 .material-item { min-width: 0; flex: 1; display: flex; flex-direction: column; align-items: center; gap: 5px; color: #633281; text-align: center; font-size: 9px; }
 .material-icon { min-width: 49px; height: 30px; display: grid; place-items: center; color: #66368a; border-radius: 9px; background: linear-gradient(145deg,#eee2fb,#c7a5e6); box-shadow: inset 0 1px rgba(255,255,255,.8); font: 18px Arial,sans-serif; }
-.video-preview { height: 70px; position: relative; display: grid; grid-template-columns: 80px 1fr; align-items: center; overflow: hidden; border-radius: 11px; border: 1px solid #c5a0e5; background: linear-gradient(100deg,#f6eaff 0 37%,#e8dcf4 37% 100%); }
-.video-mascot { width: 72px; height: 69px; object-fit: contain; justify-self: center; }
-.play-button { position: absolute; left: 58px; top: 19px; width: 31px; height: 31px; display: grid; place-items: center; padding-left: 2px; color: white; border: 1px solid white; border-radius: 50%; background: rgba(80,67,54,.77); box-shadow: 0 3px 8px rgba(70,50,30,.24); font-size: 10px; }
-.video-copy { padding: 0 10px 0 18px; color: #4d2465; font-size: 10px; line-height: 1.45; }
+.recommendation-list { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; padding: 1px 3px 5px; }
+.recommendation-item { min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 2px; color: #5b2877; font-size: 12px; font-weight: 900; }
+.recommendation-item img { width: 58px; height: 46px; object-fit: contain; filter: drop-shadow(0 4px 5px rgba(84,35,122,.12)); }
+.video-preview { height: 76px; position: relative; display: grid; grid-template-columns: 90px 1fr; align-items: center; overflow: hidden; border-radius: 11px; border: 1px solid #c5a0e5; background: linear-gradient(100deg,#f6eaff 0 37%,#e8dcf4 37% 100%); }
+.video-mascot { width: 80px; height: 74px; object-fit: contain; justify-self: center; }
+.play-button { position: absolute; left: 64px; top: 22px; width: 32px; height: 32px; display: grid; place-items: center; padding-left: 2px; color: white; border: 1px solid white; border-radius: 50%; background: rgba(80,67,84,.77); box-shadow: 0 3px 8px rgba(70,50,80,.24); font-size: 10px; }
+.video-copy { min-height: 100%; display: grid; place-items: center start; padding: 0 14px 0 18px; color: #4d2465; font-size: 14px; line-height: 1.3; }
 .video-copy b,.video-copy small { display: block; }
 .video-copy small { margin-top: 3px; }
 
@@ -328,7 +331,7 @@ a, button { touch-action: manipulation; }
 .timer-button > span:first-child { position: static; margin-right: 4px; font-size: 15px; }
 .timer-button > span:last-child { position: static; font-size: inherit; font-family: inherit; }
 .timer-status { margin: 8px 0 0; text-align: center; font-size: 9px; }
-.today-page .bottom-action,
+.today-page .bottom-action { position: absolute; left: 0; right: 0; bottom: 32px; }
 .timer-page .bottom-action,
 .challenge-page .bottom-action { position: absolute; left: 0; right: 0; bottom: 0; }
 

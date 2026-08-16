@@ -68,7 +68,7 @@ export function VideoPreview({
     <div className={`video-preview ${className}`} role="img" aria-label={`${label} (ภาพตัวอย่าง)`}>
       <img className="video-mascot" src={mascotSrc} alt="" />
       <span className="play-button" aria-hidden="true">▶</span>
-      <span className="video-copy"><b>{label}</b><small>{description}</small></span>
+      <span className="video-copy"><b>{label}</b>{description && <small>{description}</small>}</span>
     </div>
   );
 }

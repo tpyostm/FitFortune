@@ -1,18 +1,21 @@
-import { dailyFortune, getThaiDayLabel } from "../../data/daily-fortune";
-import { MaterialList, Mascot, PageShell, PrimaryLink, TopBar, VideoPreview } from "../../components/fitfortune-ui";
+import { Mascot, PageShell, PrimaryLink, TopBar, VideoPreview } from "../../components/fitfortune-ui";
 
 export default function TodayPage() {
-  const dayLabel = getThaiDayLabel();
+  const recommendations = [
+    { label: "ร่างกาย", src: "/assets/recommendations/Rec1.png" },
+    { label: "หัวใจ", src: "/assets/recommendations/Rec2.png" },
+    { label: "วิญญาณ", src: "/assets/recommendations/Rec3.png" },
+  ];
 
   return (
     <PageShell className="today-page">
       <TopBar label="✦ ดวงสุขภาพวันนี้ ✦" />
       <div className="page-content today-content">
         <header className="fortune-heading">
-          <p className="day-chip">{dayLabel}</p>
+          <p className="day-chip">วันเสาร์</p>
           <h1>ราศีกุมภ์กับดาวเสาร์</h1>
           <p>ดวงจะหนักที่</p>
-          <strong className="fortune-word">ไหล่</strong>
+          <strong className="fortune-word">“ไหล่”</strong>
         </header>
 
         <section className="fortune-reveal">
@@ -22,15 +25,22 @@ export default function TodayPage() {
         </section>
 
         <section className="white-panel fortune-task-card">
-          <strong>หมุนไหล่ข้างละ 10 ครั้ง<br />พร้อมแชร์ให้เพื่อน 5 คน</strong>
+          <strong>หมุนไหล่ข้างละ 10 ครั้ง<br />เพื่อแก้เคล็ด</strong>
         </section>
         <p className="fortune-warning">แชร์ไม่ครบ ระวังไหล่ท่านอาจจะเคล็ด!</p>
 
         <section className="today-resources">
-          <div className="resource-title"><span>แนะนำอุปกรณ์</span></div>
-          <MaterialList materials={dailyFortune.mainExercise.materials.slice(0, 2)} />
+          <div className="resource-title"><span>คำแนะนำ 3 ด้าน</span></div>
+          <div className="recommendation-list">
+            {recommendations.map((item) => (
+              <div className="recommendation-item" key={item.label}>
+                <img src={item.src} alt="" />
+                <span>{item.label}</span>
+              </div>
+            ))}
+          </div>
           <div className="resource-title"><span>คลิปแนะนำ (สำหรับทุกกลุ่ม)</span></div>
-          <VideoPreview label="ท่าหมุนไหล่" />
+          <VideoPreview label="ท่าหมุนไหล่คลายปวดด" description="" />
         </section>
       </div>
       <div className="bottom-action">
