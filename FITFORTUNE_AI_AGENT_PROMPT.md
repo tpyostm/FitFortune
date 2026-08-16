@@ -849,3 +849,12 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
 - Move the fortune title slightly downward by setting the gap below the day chip to `13px`.
 - Move `ดวงจะหนักที่` closer to the fortune title with a `6px` gap.
 - Keep the outer vertical rhythm balanced by using the same `13px` gap from `ดวงจะหนักที่` to `“ไหล่”` as from `วันเสาร์` to the fortune title.
+
+---
+
+## 35. Page 2 Remedy Copy Emphasis — 2026-08-17
+
+- Change the second task-card line from `เพื่อแก้เคล็ด` to `“เพื่อแก้เคล็ด”`.
+- Increase the main task-card copy from `13px` to `15px`.
+- Emphasize `“เพื่อแก้เคล็ด”` at `19px` with a compact `1.15` line height so it is clear and easy to read.
+- Use `7px` vertical card padding to preserve the existing card height and surrounding page balance after increasing the text.
