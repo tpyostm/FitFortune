@@ -905,3 +905,11 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
 - Do not overlay duplicate copy or another play symbol because they are already included in the supplied cover.
 - Crop the source file's outer white canvas in the displayed cover using a `1.94:1` viewport and a centered image at `106%` width, preserving the inner lavender frame and all important artwork.
 - Make the Page 5 bottom action wrapper transparent so the `BG3.png` background continues naturally behind and below the `เริ่ม Challenge!` button without a mismatched color band.
+
+---
+
+## 41. Page 5 CTA Proximity Adjustment — 2026-08-17
+
+- Move the complete Page 5 bottom action group upward by `36px`, changing its base bottom offset from `75px` to `111px`.
+- Keep the `เริ่ม Challenge!` button and its helper line together while reducing the mobile gap below the benefits card from approximately `48px` to approximately `12px` at `390 × 844`.
+- Preserve the transparent action-wrapper background and all existing button styling and navigation behavior.

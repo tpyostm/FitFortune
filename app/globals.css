@@ -335,7 +335,7 @@ a, button { touch-action: manipulation; }
 .timer-status { margin: 8px 0 0; text-align: center; font-size: 9px; }
 .today-page .bottom-action { position: absolute; left: 0; right: 0; bottom: 40px; background: transparent; }
 .timer-page .bottom-action { position: absolute; left: 0; right: 0; bottom: calc(72px + max(0px, 100svh - 812px)); background: transparent; }
-.challenge-page .bottom-action { position: absolute; left: 0; right: 0; bottom: calc(75px + max(0px, 100svh - 812px)); }
+.challenge-page .bottom-action { position: absolute; left: 0; right: 0; bottom: calc(111px + max(0px, 100svh - 812px)); }
 
 /* Complete */
 .complete-page {
