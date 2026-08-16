@@ -913,3 +913,11 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
 - Move the complete Page 5 bottom action group upward by `36px`, changing its base bottom offset from `75px` to `111px`.
 - Keep the `เริ่ม Challenge!` button and its helper line together while reducing the mobile gap below the benefits card from approximately `48px` to approximately `12px` at `390 × 844`.
 - Preserve the transparent action-wrapper background and all existing button styling and navigation behavior.
+
+---
+
+## 42. Page 2 Warning Removal — 2026-08-17
+
+- Remove the Page 2 warning copy `แชร์ไม่ครบ ระวังไหล่ท่านอาจจะเคล็ด!` completely.
+- Remove the now-unused warning style so the recommendations section naturally follows the fortune task card without reserving an empty text row.
+- Keep the task instruction and emphasized `“เพื่อแก้เคล็ด”` wording unchanged.

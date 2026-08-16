@@ -27,7 +27,6 @@ export default function TodayPage() {
         <section className="white-panel fortune-task-card">
           <strong>หมุนไหล่ข้างละ 10 ครั้ง<br /><span className="fortune-remedy">“เพื่อแก้เคล็ด”</span></strong>
         </section>
-        <p className="fortune-warning">แชร์ไม่ครบ ระวังไหล่ท่านอาจจะเคล็ด!</p>
 
         <section className="today-resources">
           <div className="resource-title"><span>คำแนะนำ 3 ด้าน</span></div>
