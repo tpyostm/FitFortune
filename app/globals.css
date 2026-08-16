@@ -364,6 +364,9 @@ button.complete-action-card { width: 100%; }
 .complete-action-card b { font-size: 13px; line-height: 1.35; }
 .action-icon { width: 58px; height: 58px; display: block; object-fit: contain; }
 .share-status { grid-column: 1/-1; margin: 0; text-align: center; color: #673187; font-size: 10px; }
+.local-click-counts { grid-column: 1/-1; padding: 9px 12px; display: flex; flex-direction: column; align-items: center; gap: 2px; color: #54226f; border: 1px dashed #bb8cde; border-radius: 12px; background: rgba(255,252,255,.68); font-size: 12px; line-height: 1.4; }
+.local-click-counts strong { font-size: 14px; }
+.local-click-counts small { color: #74468d; font-size: 10px; }
 .complete-note { margin: 9px 0 0; text-align: center; font-size: 12px; }
 .complete-note a { display: inline-block; padding: 6px 8px; color: #5e2780; font-weight: 800; line-height: 1.4; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 

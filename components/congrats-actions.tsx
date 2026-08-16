@@ -1,12 +1,50 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Mascot, PageShell } from "./fitfortune-ui";
+
+type CompleteAction = "challenge" | "share";
+type CompleteActionCounts = Record<CompleteAction, number>;
+
+const clickCountKey = "fitfortune_complete_action_clicks";
+const emptyClickCounts: CompleteActionCounts = { challenge: 0, share: 0 };
+
+function readClickCounts(): CompleteActionCounts {
+  if (typeof window === "undefined") return emptyClickCounts;
+  try {
+    const stored = JSON.parse(window.localStorage.getItem(clickCountKey) || "{}");
+    return {
+      challenge: Number.isFinite(Number(stored.challenge)) ? Math.max(0, Number(stored.challenge)) : 0,
+      share: Number.isFinite(Number(stored.share)) ? Math.max(0, Number(stored.share)) : 0,
+    };
+  } catch {
+    return emptyClickCounts;
+  }
+}
 
 export function CongratsActions() {
   const [shareStatus, setShareStatus] = useState("");
+  const [clickCounts, setClickCounts] = useState<CompleteActionCounts>(emptyClickCounts);
+  const [showCounts, setShowCounts] = useState(false);
+
+  useEffect(() => {
+    setClickCounts(readClickCounts());
+    setShowCounts(new URLSearchParams(window.location.search).get("counts") === "1");
+  }, []);
+
+  function recordClick(action: CompleteAction) {
+    const current = readClickCounts();
+    const next = { ...current, [action]: current[action] + 1 };
+    try {
+      window.localStorage.setItem(clickCountKey, JSON.stringify(next));
+    } catch {
+      // Keep the in-page count working when browser storage is unavailable.
+    }
+    setClickCounts(next);
+  }
 
   async function share() {
+    recordClick("share");
     const shareData = {
       title: "FITFORTUNE",
       text: "วันนี้ฉันขยับร่างกายตามคำทำนายแล้ว! มาเปิดดวงสุขภาพด้วยกัน ✦",
@@ -48,9 +86,17 @@ export function CongratsActions() {
         </section>
 
         <div className="action-stack">
-          <a className="complete-action-card" href="/challenge"><img className="action-icon" src="/assets/recommendations/Rec4.png" alt="" /><b>เสริมดวง<br />เฉพาะตัว</b></a>
+          <a className="complete-action-card" href="/challenge" onClick={() => recordClick("challenge")}><img className="action-icon" src="/assets/recommendations/Rec4.png" alt="" /><b>เสริมดวง<br />เฉพาะตัว</b></a>
           <button className="complete-action-card" type="button" onClick={share}><img className="action-icon" src="/assets/recommendations/Rec5.png" alt="" /><b>ส่งต่อ<br />ให้เพื่อน</b></button>
           {shareStatus && <p className="share-status" role="status">{shareStatus}</p>}
+          {showCounts && (
+            <aside className="local-click-counts" aria-label="ยอดกดในอุปกรณ์นี้">
+              <strong>ยอดกดในอุปกรณ์นี้</strong>
+              <span>เสริมดวงเฉพาะตัว: <b>{clickCounts.challenge}</b> ครั้ง</span>
+              <span>ส่งต่อให้เพื่อน: <b>{clickCounts.share}</b> ครั้ง</span>
+              <small>ยอดนี้เก็บเฉพาะในเบราว์เซอร์ปัจจุบัน</small>
+            </aside>
+          )}
         </div>
         <p className="complete-note"><a href="https://lin.ee/Pwo0SPR" target="_blank" rel="noreferrer">Add LINE OA เพื่อดูกิจกรรมอื่นๆ ของเรา</a></p>
       </div>

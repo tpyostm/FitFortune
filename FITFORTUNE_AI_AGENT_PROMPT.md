@@ -884,3 +884,14 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
 - Increase the Page 4 `เริ่ดเลยล่ะ!` heading by another `4px`, from `40px` to `44px`.
 - Increase the supporting two-line completion message from `15px` to `19px` so the full top heading group is easier to read.
 - Use a compact `1.35` supporting-copy line height to keep the larger type balanced above the mascot without changing the wording.
+
+---
+
+## 39. Page 4 Local Action Click Counters — 2026-08-17
+
+- Count clicks separately for the `เสริมดวงเฉพาะตัว` and `ส่งต่อให้เพื่อน` Page 4 actions.
+- Store the counters in browser `localStorage` under the key `fitfortune_complete_action_clicks` with the fields `challenge` and `share`.
+- Count every button press, including a share press that the user later cancels, because this metric measures action clicks rather than completed shares.
+- Keep the normal Page 4 UI unchanged. Show a small diagnostic counter panel only when the route is opened with `?counts=1`, for example `/complete?counts=1`.
+- Label the panel clearly as `ยอดกดในอุปกรณ์นี้` because this no-backend version counts only taps made in the current browser/device; it is not a global or unique-person total.
+- Clearing browser site data or using another browser/device starts a separate count. A backend analytics store will be required for an aggregated all-user total later.
