@@ -839,3 +839,13 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
 - Move the Page 2 `เริ่มเลย!` action upward by `8px`, changing its bottom offset from `32px` to `40px`.
 - Make the Page 2 bottom action wrapper transparent so `BG2.png` remains visually continuous above, behind, and below the button.
 - Keep the button styling, width, destination, shadow, and touch target unchanged.
+
+---
+
+## 34. Page 2 Fortune Heading Balance — 2026-08-17
+
+- Increase the `วันเสาร์` day chip from `13px` to `17px` and use `6px` vertical padding so it stays readable without becoming disproportionately tall.
+- Increase `ราหูโคจรทับดาวเสาร์` from `19px` to `23px`.
+- Move the fortune title slightly downward by setting the gap below the day chip to `13px`.
+- Move `ดวงจะหนักที่` closer to the fortune title with a `6px` gap.
+- Keep the outer vertical rhythm balanced by using the same `13px` gap from `ดวงจะหนักที่` to `“ไหล่”` as from `วันเสาร์` to the fortune title.

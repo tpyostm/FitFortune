@@ -277,10 +277,10 @@ a, button { touch-action: manipulation; }
 /* Today */
 .today-content { display: flex; flex-direction: column; align-items: stretch; padding-top: 0; padding-bottom: 115px; }
 .fortune-heading { text-align: center; }
-.day-chip { width: 165px; margin: 0 auto 9px; padding: 8px 13px; color: #653087; background: rgba(255,255,255,.9); border-radius: 12px; box-shadow: 0 5px 13px rgba(91,43,126,.11); font-size: 13px; font-weight: 900; }
-.fortune-heading h1 { margin: 0; color: #4f1d68; font-size: 19px; line-height: 1.25; }
-.fortune-heading > p:not(.day-chip) { margin: 15px 0 8px; font-size: 15px; font-weight: 800; }
-.fortune-word { display: block; margin-top: 4px; color: #8c4fc1; font-size: 45px; line-height: 1; text-shadow: 0 2px 0 #e8d2fb; }
+.day-chip { width: 165px; margin: 0 auto 13px; padding: 6px 13px; color: #653087; background: rgba(255,255,255,.9); border-radius: 12px; box-shadow: 0 5px 13px rgba(91,43,126,.11); font-size: 17px; font-weight: 900; }
+.fortune-heading h1 { margin: 0; color: #4f1d68; font-size: 23px; line-height: 1.2; }
+.fortune-heading > p:not(.day-chip) { margin: 6px 0 13px; font-size: 15px; font-weight: 800; }
+.fortune-word { display: block; margin-top: 0; color: #8c4fc1; font-size: 45px; line-height: 1; text-shadow: 0 2px 0 #e8d2fb; }
 .fortune-reveal { height: 150px; display: grid; place-items: center; position: relative; }
 .fortune-mascot { width: 150px; height: 150px; position: relative; z-index: 2; }
 .fortune-accent { position: absolute; top: 55px; color: #8950c2; font-size: 36px; font-weight: 900; }
