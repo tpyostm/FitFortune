@@ -866,3 +866,13 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
 - Remove the white canvas border visible around the Page 2 video cover in the app.
 - Keep the original source file unchanged, but crop its display to the inner lavender rounded cover by using a `3.28:1` viewport and rendering the image at `107%` width from the center.
 - Preserve the mascot, play symbol, title, duration, inner purple outline, and rounded corners without adding another background layer.
+
+---
+
+## 37. Page 3 Timer-Controlled Pose Loop — 2026-08-17
+
+- Show `/public/assets/poses/Post1.png` as the neutral mascot before the main timer starts.
+- Start the `Post2.png → Post3.png → Post4.png → Post3.png` loop only while the timer is actively running, keeping the existing `700ms` frame interval.
+- When the user pauses the timer, stop the pose interval immediately and return the mascot to `Post1.png`.
+- Reset the active loop to its first frame whenever it is started or resumed.
+- Keep challenge mode static on its challenge mascot because that exercise has no multi-pose sequence.
