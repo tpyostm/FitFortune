@@ -248,6 +248,7 @@ a, button { touch-action: manipulation; }
   box-shadow: 0 3px 8px rgba(79,35,117,.15), inset 0 1px white;
   font: 28px/1 Arial,sans-serif;
 }
+.back-button > span { display: block; line-height: 1; transform: translateX(1px); }
 .page-content { width: 100%; padding: 8px 17px 24px; flex: 1; }
 .white-panel { background: rgba(255,252,255,.88); border: 1px solid var(--line); border-radius: 15px; box-shadow: 0 5px 15px rgba(91,45,130,.09), inset 0 1px white; backdrop-filter: blur(4px); }
 .bottom-action {

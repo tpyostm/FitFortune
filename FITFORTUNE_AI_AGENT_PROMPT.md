@@ -785,3 +785,11 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
 - Keep the mascot frame at a fixed size so pose changes do not move the surrounding layout.
 - Keep challenge-mode mascot behavior static when no pose sequence is provided.
 - Do not change timer timing, start/pause/resume behavior, or navigation after completion.
+
+---
+
+## 28. Shared Back Button Optical Alignment — 2026-08-17
+
+- Apply the adjustment through the shared `TopBar` so every page with a back button receives the same alignment.
+- Keep the existing circular button size, colors, border, shadow, link destination, and accessible label.
+- Place the chevron in its own visual span and shift it `1px` to the right for optical centering inside the circle.
