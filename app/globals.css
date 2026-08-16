@@ -288,7 +288,7 @@ a, button { touch-action: manipulation; }
 .accent-right { right: 67px; transform: rotate(-48deg); }
 .fortune-task-card { padding: 7px 10px; text-align: center; font-size: 15px; line-height: 1.25; }
 .fortune-remedy { display: inline-block; margin-top: 2px; font-size: 19px; line-height: 1.15; }
-.today-resources { padding: 0 9px 8px; border: 1px solid var(--line); border-radius: 15px; background: rgba(255,250,255,.62); backdrop-filter: blur(4px); }
+.today-resources { margin-top: 10px; padding: 0 9px 8px; border: 1px solid var(--line); border-radius: 15px; background: rgba(255,250,255,.62); backdrop-filter: blur(4px); }
 .resource-title { height: 23px; display: flex; align-items: center; gap: 8px; color: #6b3589; font-size: 9px; text-align: center; }
 .resource-title::before,.resource-title::after { content: ""; flex: 1; height: 1px; background: #cfafe9; }
 .resource-title span { white-space: nowrap; }

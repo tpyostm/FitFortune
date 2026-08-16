@@ -928,3 +928,10 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
 
 - Change the Page 2 recommendation heading from `คำแนะนำ 3 ด้าน` to `แนะนำอุปกรณ์`.
 - Keep the existing `ร่างกาย`, `หัวใจ`, and `วิญญาณ` recommendation icons and their layout unchanged.
+
+---
+
+## 44. Page 2 Card Separation — 2026-08-17
+
+- Add a `10px` vertical gap between the fortune task card and the equipment recommendation card on Page 2.
+- Keep the content, dimensions, and internal layout of both cards unchanged while making their boundaries visually distinct.
