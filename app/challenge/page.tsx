@@ -1,8 +1,13 @@
 import { dailyFortune } from "../../data/daily-fortune";
-import { MaterialList, Mascot, PageShell, PrimaryLink, TopBar } from "../../components/fitfortune-ui";
+import { Mascot, PageShell, PrimaryLink, TopBar } from "../../components/fitfortune-ui";
 
 export default function ChallengePage() {
   const exercise = dailyFortune.challengeExercise;
+  const recommendations = [
+    { label: "ร่างกาย", src: "/assets/recommendations/Rec1.png" },
+    { label: "หัวใจ", src: "/assets/recommendations/Rec2.png" },
+    { label: "วิญญาณ", src: "/assets/recommendations/Rec3.png" },
+  ];
 
   return (
     <PageShell className="challenge-page">
@@ -25,7 +30,14 @@ export default function ChallengePage() {
 
         <section className="white-panel challenge-video-panel">
           <div className="resource-title"><span>แนะนำอุปกรณ์</span></div>
-          <MaterialList materials={exercise.materials} />
+          <div className="recommendation-list challenge-recommendation-list">
+            {recommendations.map((item) => (
+              <div className="recommendation-item" key={item.label}>
+                <img src={item.src} alt="" />
+                <span>{item.label}</span>
+              </div>
+            ))}
+          </div>
         </section>
 
         <section className="white-panel benefits-card">

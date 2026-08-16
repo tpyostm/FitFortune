@@ -761,3 +761,16 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
   - `/public/assets/recommendations/Rec5.png` → `ส่งต่อให้เพื่อน` and retain the Web Share / copy-link fallback.
 - Remove the separate `Add LINE OA` action card.
 - Replace the bottom note with the clickable text `Add LINE OA เพื่อดูกิจกรรมอื่นๆ ของเรา`, linking to `https://lin.ee/Pwo0SPR` in a new tab.
+
+---
+
+## 26. Page 5 Equipment, Type Scale, and Spacing Update — 2026-08-17
+
+- Keep the Page 5 section heading as `แนะนำอุปกรณ์`.
+- Replace the old text-symbol material list with the same three visual recommendations used on Page 2:
+  - `/public/assets/recommendations/Rec1.png` → `ร่างกาย`
+  - `/public/assets/recommendations/Rec2.png` → `หัวใจ`
+  - `/public/assets/recommendations/Rec3.png` → `วิญญาณ`
+- Increase every Page 5 text size by at least `4px` from its previous value, including the heading, supporting copy, exercise text, duration, section labels, recommendation labels, benefits, CTA, and helper text.
+- Remove the oversized minimum height from the benefits panel and tighten its vertical padding and list spacing so the panel fits its content.
+- Move the `เริ่ม Challenge!` action upward with a `75px` base offset plus tall-viewport compensation, keeping an approximately `26px` gap below the benefits panel on the `390 × 844` mobile layout.
