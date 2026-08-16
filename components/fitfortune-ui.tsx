@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { ReactNode } from "react";
 
 export function PageShell({ children, className = "" }: { children: ReactNode; className?: string }) {
@@ -25,7 +24,7 @@ export function MagicDust() {
 export function TopBar({ backHref = "/", label = "FITFORTUNE" }: { backHref?: string; label?: string }) {
   return (
     <nav className="top-bar" aria-label="เมนูหน้า">
-      <Link className="back-button" href={backHref} aria-label="ย้อนกลับ">‹</Link>
+      <a className="back-button" href={backHref} aria-label="ย้อนกลับ">‹</a>
       <span>{label}</span>
       <span className="top-bar-spacer" />
     </nav>
@@ -33,7 +32,7 @@ export function TopBar({ backHref = "/", label = "FITFORTUNE" }: { backHref?: st
 }
 
 export function PrimaryLink({ href, children, className = "" }: { href: string; children: ReactNode; className?: string }) {
-  return <Link className={`primary-button ${className}`} href={href}>{children}<span aria-hidden="true">›</span></Link>;
+  return <a className={`primary-button ${className}`} href={href}>{children}<span aria-hidden="true">›</span></a>;
 }
 
 export function Mascot({ src, alt, className = "" }: { src: string; alt: string; className?: string }) {

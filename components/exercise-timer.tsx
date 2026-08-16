@@ -1,12 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
 import { dailyFortune } from "../data/daily-fortune";
 import { Mascot, PageShell, TopBar } from "./fitfortune-ui";
 
 export function ExerciseTimer({ challenge = false }: { challenge?: boolean }) {
-  const router = useRouter();
   const exercise = challenge ? dailyFortune.challengeExercise : dailyFortune.mainExercise;
   const [timeLeft, setTimeLeft] = useState(exercise.durationSec);
   const [running, setRunning] = useState(false);
@@ -34,9 +32,9 @@ export function ExerciseTimer({ challenge = false }: { challenge?: boolean }) {
     } catch {
       // The experience still works when browser storage is unavailable.
     }
-    const next = window.setTimeout(() => router.push("/complete"), 850);
+    const next = window.setTimeout(() => window.location.assign("/complete"), 850);
     return () => window.clearTimeout(next);
-  }, [timeLeft, hasStarted, challenge, exercise.durationSec, router]);
+  }, [timeLeft, hasStarted, challenge, exercise.durationSec]);
 
   function toggleTimer() {
     setHasStarted(true);

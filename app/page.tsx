@@ -1,16 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const router = useRouter();
   const [opening, setOpening] = useState(false);
 
   function openFortune() {
     if (opening) return;
     setOpening(true);
-    window.setTimeout(() => router.push("/today"), 1180);
+    window.setTimeout(() => window.location.assign("/today"), 1180);
   }
 
   return (

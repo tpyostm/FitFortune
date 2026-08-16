@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { Mascot, PageShell, TopBar } from "./fitfortune-ui";
 
 export function CongratsActions() {
@@ -52,7 +51,7 @@ export function CongratsActions() {
         </section>
 
         <div className="action-stack">
-          <Link className="primary-button" href="/challenge">บูสต์ดวงเฉพาะคุณ <span>›</span></Link>
+          <a className="primary-button" href="/challenge">บูสต์ดวงเฉพาะคุณ <span>›</span></a>
           <button className="secondary-button" type="button" onClick={share}>ส่งต่อให้เพื่อน <span aria-hidden="true">↗</span></button>
           <a className="line-button" href="https://line.me/R/ti/p/@fitfortune" target="_blank" rel="noreferrer">เพิ่มเพื่อน LINE OA <span aria-hidden="true">＋</span></a>
           {shareStatus && <p className="share-status" role="status">{shareStatus}</p>}
