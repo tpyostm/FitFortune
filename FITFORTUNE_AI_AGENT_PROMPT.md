@@ -748,3 +748,16 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
 - Move the timer control group upward by a base `72px`, plus the viewport height above the `812px` reference canvas, so the gap below the exercise instructions stays approximately `38px` on taller mobile screens.
 - Apply the same position to all timer states: `เริ่มจับเวลา`, `หยุดชั่วคราว`, and `ทำต่อ`.
 - Keep the existing timer logic, button size, copy, and visual style unchanged.
+
+---
+
+## 25. Page 4 Completion Content and Actions Update — 2026-08-17
+
+- Change the completion headline to `เริ่ดเลยล่ะ!`.
+- Change the main panel message to `อยากเฮลตี้ขึ้นอีกขั้นไหม?` / `มาลอง Challenge ต่อไปกันเลย!`.
+- Change the supporting panel copy to `หรือชวนเพื่อนเพิ่ม 5 คน` / `แชร์ไม่ครบ ระวังไหล่ท่านอาจจะเคล็ด`.
+- Keep only two action cards:
+  - `/public/assets/recommendations/Rec4.png` → `เสริมดวงเฉพาะตัว` and navigate to `/challenge`.
+  - `/public/assets/recommendations/Rec5.png` → `ส่งต่อให้เพื่อน` and retain the Web Share / copy-link fallback.
+- Remove the separate `Add LINE OA` action card.
+- Replace the bottom note with the clickable text `Add LINE OA เพื่อดูกิจกรรมอื่นๆ ของเรา`, linking to `https://lin.ee/Pwo0SPR` in a new tab.

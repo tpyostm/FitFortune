@@ -30,7 +30,7 @@ export function CongratsActions() {
       <div className="page-content complete-content">
         <header className="celebration-heading">
           <span className="celebration-confetti" aria-hidden="true">╲ ✦ · ✧ · ✦ ╱</span>
-          <h1>CONGRATS!</h1>
+          <h1>เริ่ดเลยล่ะ!</h1>
           <p>คุณได้ออกกำลังกาย<br />เสริมดวงสุขภาพแล้ววันนี้ ✦</p>
         </header>
 
@@ -43,17 +43,16 @@ export function CongratsActions() {
         </div>
 
         <section className="white-panel boost-card">
-          <strong>สุขภาพดี เริ่มจากตัวเรา<br />ทำต่อเนื่อง ชีวิตก็จะปัง!</strong>
-          <p>อยากเฮลตี้ขึ้นอีกขั้น?<br />มาลอง Challenge ต่อไปกันเลย!</p>
+          <strong>อยากเฮลตี้ขึ้นอีกขั้นไหม?<br />มาลอง Challenge ต่อไปกันเลย!</strong>
+          <p>หรือชวนเพื่อนเพิ่ม 5 คน<br />แชร์ไม่ครบ ระวังไหล่ท่านอาจจะเคล็ด</p>
         </section>
 
         <div className="action-stack">
-          <a className="complete-action-card" href="/challenge"><span className="action-icon star-icon">★</span><b>เสริมดวง<br />เฉพาะตัว</b></a>
-          <button className="complete-action-card" type="button" onClick={share}><span className="action-icon share-icon">➤</span><b>ส่งต่อ<br />ให้เพื่อน</b></button>
-          <a className="complete-action-card" href="https://line.me/R/ti/p/@fitfortune" target="_blank" rel="noreferrer"><span className="action-icon line-icon">LINE</span><b>Add<br />LINE OA</b></a>
+          <a className="complete-action-card" href="/challenge"><img className="action-icon" src="/assets/recommendations/Rec4.png" alt="" /><b>เสริมดวง<br />เฉพาะตัว</b></a>
+          <button className="complete-action-card" type="button" onClick={share}><img className="action-icon" src="/assets/recommendations/Rec5.png" alt="" /><b>ส่งต่อ<br />ให้เพื่อน</b></button>
           {shareStatus && <p className="share-status" role="status">{shareStatus}</p>}
         </div>
-        <p className="complete-note">ทำตัววันนี้ พรุ่งนี้จะดีกว่าเดิมแน่นอน! ☺</p>
+        <p className="complete-note"><a href="https://lin.ee/Pwo0SPR" target="_blank" rel="noreferrer">Add LINE OA เพื่อดูกิจกรรมอื่นๆ ของเรา</a></p>
       </div>
     </PageShell>
   );
