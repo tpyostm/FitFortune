@@ -876,3 +876,11 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
 - When the user pauses the timer, stop the pose interval immediately and return the mascot to `Post1.png`.
 - Reset the active loop to its first frame whenever it is started or resumed.
 - Keep challenge mode static on its challenge mascot because that exercise has no multi-pose sequence.
+
+---
+
+## 38. Page 4 Celebration Heading Scale Increase — 2026-08-17
+
+- Increase the Page 4 `เริ่ดเลยล่ะ!` heading by another `4px`, from `40px` to `44px`.
+- Increase the supporting two-line completion message from `15px` to `19px` so the full top heading group is easier to read.
+- Use a compact `1.35` supporting-copy line height to keep the larger type balanced above the mascot without changing the wording.
