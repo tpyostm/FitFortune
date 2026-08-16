@@ -9,13 +9,13 @@ export async function generateMetadata(): Promise<Metadata> {
   const baseUrl = new URL(`${protocol}://${host}`);
   const title = "FITFORTUNE — เปิดดวง ฟิตสุขภาพ";
   const description = "เปิดไพ่สุขภาพประจำวัน แล้วขยับร่างกายไปกับ FITFORTUNE";
-  const socialImage = new URL("/og.png", baseUrl).toString();
+  const socialImage = new URL("/og-v2.png", baseUrl).toString();
 
   return {
     metadataBase: baseUrl,
     title,
     description,
-    openGraph: { title, description, type: "website", images: [{ url: socialImage, width: 1733, height: 908, alt: "FITFORTUNE เปิดดวง ฟิตสุขภาพ" }] },
+    openGraph: { title, description, type: "website", images: [{ url: socialImage, width: 1734, height: 907, alt: "FITFORTUNE เปิดดวง ฟิตสุขภาพ" }] },
     twitter: { card: "summary_large_image", title, description, images: [socialImage] },
   };
 }

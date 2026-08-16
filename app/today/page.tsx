@@ -6,41 +6,31 @@ export default function TodayPage() {
 
   return (
     <PageShell className="today-page">
-      <TopBar />
-      <div className="page-content">
+      <TopBar label="✦ ดวงสุขภาพวันนี้ ✦" />
+      <div className="page-content today-content">
         <header className="fortune-heading">
-          <p className="day-chip">☀ วันนี้{dayLabel}</p>
-          <p className="section-kicker">ผลทำนายของคุณ</p>
-          <h1>ดวงสุขภาพวันนี้</h1>
+          <p className="day-chip">{dayLabel}</p>
+          <h1>ราศีกุมภ์กับดาวเสาร์</h1>
+          <p>ดวงจะหนักที่</p>
+          <strong className="fortune-word">ไหล่</strong>
         </header>
 
         <section className="fortune-reveal">
-          <div className="fortune-rays" aria-hidden="true" />
-          <Mascot src="/assets/mascot/Mascot2.png" alt="มาสคอตกำลังคิดคำทำนาย" className="fortune-mascot" />
-          <div className="fortune-bubble">
-            <span>ดวงบอกว่า...</span>
-            <strong>พักไหล่<br />แล้วไปต่อ!</strong>
-          </div>
+          <span className="fortune-accent accent-left" aria-hidden="true">⌁</span>
+          <Mascot src="/assets/mascot/Mascot3.png" alt="มาสคอตกำลังหมุนไหล่" className="fortune-mascot mascot-gold" />
+          <span className="fortune-accent accent-right" aria-hidden="true">⌁</span>
         </section>
 
-        <section className="white-panel fortune-copy-card">
-          <div className="focus-badge">โฟกัสวันนี้ · {dailyFortune.healthFocusArea}</div>
-          <h2>{dailyFortune.fortuneTitle}</h2>
-          <p>{dailyFortune.fortuneBody}</p>
-          <div className="tiny-fortune">✦ {dailyFortune.shareWarningText}</div>
+        <section className="white-panel fortune-task-card">
+          <strong>หมุนไหล่ข้างละ 10 ครั้ง<br />พร้อมแชร์ให้เพื่อน 5 คน</strong>
         </section>
+        <p className="fortune-warning">แชร์ไม่ครบ ระวังไหล่ท่านอาจจะเคล็ด!</p>
 
-        <section className="white-panel exercise-info-panel">
-          <div className="panel-title-row">
-            <div>
-              <span className="section-kicker">ภารกิจเรียกพลัง</span>
-              <h2>{dailyFortune.mainExercise.name}</h2>
-            </div>
-            <span className="duration-pill">30 วิ</span>
-          </div>
-          <VideoPreview />
-          <h3>อุปกรณ์ที่ใช้</h3>
-          <MaterialList materials={dailyFortune.mainExercise.materials} />
+        <section className="today-resources">
+          <div className="resource-title"><span>แนะนำอุปกรณ์</span></div>
+          <MaterialList materials={dailyFortune.mainExercise.materials.slice(0, 2)} />
+          <div className="resource-title"><span>คลิปแนะนำ (สำหรับทุกกลุ่ม)</span></div>
+          <VideoPreview label="ท่าหมุนไหล่" />
         </section>
       </div>
       <div className="bottom-action">

@@ -18,7 +18,7 @@ export const dailyFortune = {
     materials: [
       { name: "เสื่อโยคะ", icon: "▰" },
       { name: "ผ้าขนหนู", icon: "▱" },
-      { name: "น้ำดื่ม", icon: "◉" },
+      { name: "น้ำดื่ม", icon: "●" },
     ],
     mascot: "/assets/mascot/Mascot3.png",
   },
@@ -28,8 +28,8 @@ export const dailyFortune = {
     durationSec: 30,
     materials: [
       { name: "เสื่อโยคะ", icon: "▰" },
-      { name: "ผ้าขนหนู", icon: "▱" },
-      { name: "น้ำดื่ม", icon: "◉" },
+      { name: "ดัมเบลเบา (ถ้ามี)", icon: "●—●" },
+      { name: "ยางยืดออกกำลังกาย", icon: "∞" },
     ],
     mascot: "/assets/mascot/Mascot6.png",
   },

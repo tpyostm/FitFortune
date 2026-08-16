@@ -25,7 +25,7 @@ export function TopBar({ backHref = "/", label = "FITFORTUNE" }: { backHref?: st
   return (
     <nav className="top-bar" aria-label="เมนูหน้า">
       <a className="back-button" href={backHref} aria-label="ย้อนกลับ">‹</a>
-      <span>{label}</span>
+      <span className="top-label">{label}</span>
       <span className="top-bar-spacer" />
     </nav>
   );
@@ -52,12 +52,22 @@ export function MaterialList({ materials }: { materials: { name: string; icon: s
   );
 }
 
-export function VideoPreview({ label = "คลิปตัวอย่าง" }: { label?: string }) {
+export function VideoPreview({
+  label = "คลิปตัวอย่าง",
+  description = "หมุนไหล่คลายปวด ดูคลิป (1:30 นาที)",
+  mascotSrc = "/assets/mascot/Mascot3.png",
+  className = "",
+}: {
+  label?: string;
+  description?: string;
+  mascotSrc?: string;
+  className?: string;
+}) {
   return (
-    <div className="video-preview" role="img" aria-label={`${label} (ภาพตัวอย่าง)`}>
-      <span className="video-orbit" />
+    <div className={`video-preview ${className}`} role="img" aria-label={`${label} (ภาพตัวอย่าง)`}>
+      <img className="video-mascot mascot-gold" src={mascotSrc} alt="" />
       <span className="play-button" aria-hidden="true">▶</span>
-      <span className="video-label">{label}</span>
+      <span className="video-copy"><b>{label}</b><small>{description}</small></span>
     </div>
   );
 }
