@@ -29,7 +29,7 @@ export default function TodayPage() {
         </section>
 
         <section className="today-resources">
-          <div className="resource-title"><span>คำแนะนำ 3 ด้าน</span></div>
+          <div className="resource-title"><span>แนะนำอุปกรณ์</span></div>
           <div className="recommendation-list">
             {recommendations.map((item) => (
               <div className="recommendation-item" key={item.label}>

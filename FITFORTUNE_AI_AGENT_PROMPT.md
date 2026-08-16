@@ -921,3 +921,10 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
 - Remove the Page 2 warning copy `แชร์ไม่ครบ ระวังไหล่ท่านอาจจะเคล็ด!` completely.
 - Remove the now-unused warning style so the recommendations section naturally follows the fortune task card without reserving an empty text row.
 - Keep the task instruction and emphasized `“เพื่อแก้เคล็ด”` wording unchanged.
+
+---
+
+## 43. Page 2 Recommendation Heading — 2026-08-17
+
+- Change the Page 2 recommendation heading from `คำแนะนำ 3 ด้าน` to `แนะนำอุปกรณ์`.
+- Keep the existing `ร่างกาย`, `หัวใจ`, and `วิญญาณ` recommendation icons and their layout unchanged.
