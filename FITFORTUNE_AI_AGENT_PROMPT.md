@@ -858,3 +858,11 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
 - Increase the main task-card copy from `13px` to `15px`.
 - Emphasize `“เพื่อแก้เคล็ด”` at `19px` with a compact `1.15` line height so it is clear and easy to read.
 - Use `7px` vertical card padding to preserve the existing card height and surrounding page balance after increasing the text.
+
+---
+
+## 36. Page 2 Video Cover White Border Removal — 2026-08-17
+
+- Remove the white canvas border visible around the Page 2 video cover in the app.
+- Keep the original source file unchanged, but crop its display to the inner lavender rounded cover by using a `3.28:1` viewport and rendering the image at `107%` width from the center.
+- Preserve the mascot, play symbol, title, duration, inner purple outline, and rounded corners without adding another background layer.
