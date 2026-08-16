@@ -831,3 +831,11 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
 - Do not overlay duplicate text or another play icon because both are already included in the supplied artwork.
 - Preserve the complete `3:1` artwork inside the available card width so the mascot, title, duration, and rounded cover frame are not cropped.
 - Keep the preview accessible with the label `หมุนไหล่คลายปวด ดูคลิป (30 วินาที)`.
+
+---
+
+## 33. Page 2 CTA Position and Background Cleanup — 2026-08-17
+
+- Move the Page 2 `เริ่มเลย!` action upward by `8px`, changing its bottom offset from `32px` to `40px`.
+- Make the Page 2 bottom action wrapper transparent so `BG2.png` remains visually continuous above, behind, and below the button.
+- Keep the button styling, width, destination, shadow, and touch target unchanged.
