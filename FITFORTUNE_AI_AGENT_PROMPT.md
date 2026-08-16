@@ -793,3 +793,14 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
 - Apply the adjustment through the shared `TopBar` so every page with a back button receives the same alignment.
 - Keep the existing circular button size, colors, border, shadow, link destination, and accessible label.
 - Place the chevron in its own visual span and shift it `1px` to the right for optical centering inside the circle.
+
+---
+
+## 29. Page 2 Fortune Copy, Post6, and Video Text Update — 2026-08-17
+
+- Change the fortune heading from `ราศีกุมภ์กับดาวเสาร์` to `ราหูโคจรทับดาวเสาร์`.
+- Save the newly supplied shoulder-pain mascot as the next sequential pose asset: `/public/assets/poses/Post6.png`.
+- Use `Post6.png` for the large Page 2 fortune mascot and for the video preview thumbnail.
+- Display the video text as `ท่าหมุนไหล่คลายปวด`.
+- Reserve a dedicated `100px` image column in the video preview so text cannot overlap the mascot.
+- Let the video text fill the remaining right-hand column at `20–24px`, centered with `6px` side padding so it stays large without touching the card edges.

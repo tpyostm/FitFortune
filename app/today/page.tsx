@@ -13,14 +13,14 @@ export default function TodayPage() {
       <div className="page-content today-content">
         <header className="fortune-heading">
           <p className="day-chip">วันเสาร์</p>
-          <h1>ราศีกุมภ์กับดาวเสาร์</h1>
+          <h1>ราหูโคจรทับดาวเสาร์</h1>
           <p>ดวงจะหนักที่</p>
           <strong className="fortune-word">“ไหล่”</strong>
         </header>
 
         <section className="fortune-reveal">
           <span className="fortune-accent accent-left" aria-hidden="true">⌁</span>
-          <Mascot src="/assets/poses/Post2.png" alt="มาสคอตกำลังหมุนไหล่" className="fortune-mascot" />
+          <Mascot src="/assets/poses/Post6.png" alt="มาสคอตกำลังปวดไหล่" className="fortune-mascot" />
           <span className="fortune-accent accent-right" aria-hidden="true">⌁</span>
         </section>
 
@@ -40,7 +40,7 @@ export default function TodayPage() {
             ))}
           </div>
           <div className="resource-title"><span>คลิปแนะนำ (สำหรับทุกกลุ่ม)</span></div>
-          <VideoPreview label="ท่าหมุนไหล่คลายปวดด" description="" />
+          <VideoPreview label="ท่าหมุนไหล่คลายปวด" description="" mascotSrc="/assets/poses/Post6.png" />
         </section>
       </div>
       <div className="bottom-action">
