@@ -804,3 +804,11 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
 - Display the video text as `ท่าหมุนไหล่คลายปวด`.
 - Reserve a dedicated `100px` image column in the video preview so text cannot overlap the mascot.
 - Let the video text fill the remaining right-hand column at `20–24px`, centered with `6px` side padding so it stays large without touching the card edges.
+
+---
+
+## 30. Page 3 Timer Action Background Fix — 2026-08-17
+
+- Remove the shared lavender gradient from the Page 3 timer action wrapper.
+- Make the wrapper background transparent so `BG3.png` continues naturally behind and around the timer button.
+- Keep the timer button fill, purple border, shadow, size, position, and interaction states unchanged.
