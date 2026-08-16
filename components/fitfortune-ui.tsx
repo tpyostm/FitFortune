@@ -6,6 +6,7 @@ export function PageShell({ children, className = "" }: { children: ReactNode; c
       <div className="ambient ambient-one" />
       <div className="ambient ambient-two" />
       <section className={`phone-canvas inner-canvas ${className}`}>
+        <img className="effect-sparkle-sheet" src="/assets/effects/Effect2.png" alt="" aria-hidden="true" />
         <MagicDust />
         {children}
       </section>
@@ -55,7 +56,7 @@ export function MaterialList({ materials }: { materials: { name: string; icon: s
 export function VideoPreview({
   label = "คลิปตัวอย่าง",
   description = "หมุนไหล่คลายปวด ดูคลิป (1:30 นาที)",
-  mascotSrc = "/assets/mascot/Mascot3.png",
+  mascotSrc = "/assets/poses/Post2.png",
   className = "",
 }: {
   label?: string;
@@ -65,7 +66,7 @@ export function VideoPreview({
 }) {
   return (
     <div className={`video-preview ${className}`} role="img" aria-label={`${label} (ภาพตัวอย่าง)`}>
-      <img className="video-mascot mascot-gold" src={mascotSrc} alt="" />
+      <img className="video-mascot" src={mascotSrc} alt="" />
       <span className="play-button" aria-hidden="true">▶</span>
       <span className="video-copy"><b>{label}</b><small>{description}</small></span>
     </div>

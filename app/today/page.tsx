@@ -17,7 +17,7 @@ export default function TodayPage() {
 
         <section className="fortune-reveal">
           <span className="fortune-accent accent-left" aria-hidden="true">⌁</span>
-          <Mascot src="/assets/mascot/Mascot3.png" alt="มาสคอตกำลังหมุนไหล่" className="fortune-mascot mascot-gold" />
+          <Mascot src="/assets/poses/Post2.png" alt="มาสคอตกำลังหมุนไหล่" className="fortune-mascot" />
           <span className="fortune-accent accent-right" aria-hidden="true">⌁</span>
         </section>
 

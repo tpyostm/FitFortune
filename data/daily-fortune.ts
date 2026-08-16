@@ -4,6 +4,7 @@ export type ExerciseContent = {
   durationSec: number;
   materials: { name: string; icon: string }[];
   mascot: string;
+  poses?: string[];
 };
 
 export const dailyFortune = {
@@ -20,7 +21,8 @@ export const dailyFortune = {
       { name: "ผ้าขนหนู", icon: "▱" },
       { name: "น้ำดื่ม", icon: "●" },
     ],
-    mascot: "/assets/mascot/Mascot3.png",
+    mascot: "/assets/poses/Post2.png",
+    poses: ["/assets/poses/Post2.png", "/assets/poses/Post3.png", "/assets/poses/Post4.png"],
   },
   challengeExercise: {
     name: "Plank แตะไหล่",

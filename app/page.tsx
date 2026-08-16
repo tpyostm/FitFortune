@@ -16,6 +16,7 @@ export default function Home() {
       <div className="ambient ambient-one" />
       <div className="ambient ambient-two" />
       <section className="phone-canvas landing-canvas draft-landing">
+        <img className="effect-sparkle-sheet landing-sparkle-sheet" src="/assets/effects/Effect2.png" alt="" aria-hidden="true" />
         <div className="sparkles" aria-hidden="true">
           <span>★</span><span>✦</span><span>★</span><span>✧</span><span>★</span><span>✦</span>
         </div>
@@ -27,6 +28,7 @@ export default function Home() {
         </header>
 
         <div className="landing-card-scene">
+          <img className="landing-orbit" src="/assets/effects/Effect1.png" alt="" aria-hidden="true" />
           <span className="leaf-silhouette leaf-left" aria-hidden="true" />
           <span className="leaf-silhouette leaf-right" aria-hidden="true" />
           <span className="card-shadow-layer card-shadow-left" aria-hidden="true" />
@@ -40,10 +42,10 @@ export default function Home() {
             <span className="card-aura" />
             <span className="card-flipper">
               <span className="card-face card-back">
-                <img className="golden-asset" src="/assets/cards/card-back.png" alt="ไพ่ปริศนา FITFORTUNE" />
+                <img src="/assets/cards/card-back.png" alt="ไพ่ปริศนา FITFORTUNE" />
               </span>
               <span className="card-face card-front">
-                <img className="golden-asset" src="/assets/cards/card-front.png" alt="ไพ่ FITFORTUNE ที่เปิดแล้ว" />
+                <img src="/assets/cards/card-front.png" alt="ไพ่ FITFORTUNE ที่เปิดแล้ว" />
               </span>
             </span>
           </button>

@@ -36,7 +36,7 @@ export function CongratsActions() {
 
         <div className="celebration-mascot-wrap">
           <span className="celebration-ring" />
-          <Mascot src="/assets/mascot/Mascot4.png" alt="มาสคอตดีใจที่ทำภารกิจสำเร็จ" className="celebration-mascot mascot-gold" />
+          <Mascot src="/assets/poses/Post5.png" alt="มาสคอตดีใจที่ทำภารกิจสำเร็จ" className="celebration-mascot" />
           <span className="star-pop star-one">★</span>
           <span className="star-pop star-two">✦</span>
           <span className="star-pop star-three">★</span>

@@ -43,25 +43,25 @@ Create a simple but polished interactive experience with this flow:
 - Main timer duration: **30 seconds**
 - The “Personal fortune boost” action should go to **Page 5**
 - The share feature does **not** need real share verification
-- Final production assets may come later, so the app must be able to work with placeholders first
+- Final purple production assets are now included and must be used before any placeholder fallback
 
 ---
 
 ## 4. Recommended Tech Stack
 
-Use:
+Current implementation uses:
 
-- **Next.js**
+- **Next.js App Router** through the existing Vinext-compatible project
 - **TypeScript**
-- **Tailwind CSS**
-- **Supabase**
-- **Vercel**
+- **CSS design tokens** with the existing Tailwind import
+- **Browser localStorage** for lightweight session logging
+- **OpenAI Sites** for production hosting
 
 ### Notes
 - Use **App Router**
 - Use clean, readable folder structure
 - Use reusable components
-- Use mock data first, then connect to Supabase
+- Keep the existing mock-data module unless a backend is explicitly requested later
 
 ---
 
@@ -106,8 +106,8 @@ UI requirements:
 - App title: **FITFORTUNE**
 - Subtitle / short supporting copy in Thai
 - One large central fortune card
-- No main button required
-- User should tap the card itself
+- The fortune card remains the primary tap target
+- A rounded bottom CTA matching the reference layout may trigger the same card-flip action
 - Card should feel interactive and magical
 
 Interaction:
@@ -223,17 +223,20 @@ Optional query params:
 - kawaii mascot presence
 
 ### Theme Colors
-Use placeholder theme tokens for now:
+Use the current soft-purple production palette:
 
-- Primary: `#A78BFA`
-- Primary dark: `#8B5CF6`
-- Light purple: `#E9D5FF`
-- Background: `#FAF5FF`
+- Primary: `#A855F7`
+- Primary dark: `#7C3AED`
+- Button light: `#BD7CF0`
+- Button dark: `#8C4FBE`
+- Light purple: `#F3E8FF`
+- Background: `#EEE3F9`
+- Panel line: `#C9A3E8`
 - Accent pink: `#F9A8D4`
-- Accent cream: `#FFF7ED`
-- Text dark: `#4C1D95`
+- Accent yellow: `#FFD95F`
+- Text dark: `#48135F`
 
-These can be refactored later.
+The earlier cream/gold draft is a positioning reference only. Do not restore its palette.
 
 ---
 
@@ -331,12 +334,9 @@ Use:
 
 ---
 
-## 12. Placeholder Asset Strategy (Important)
+## 12. Production Asset Strategy (Updated)
 
-Do **not** block the build waiting for final assets.
-
-Use placeholder assets now so the app can be implemented immediately.  
-Replace them later when final assets are ready.
+Production assets now exist for cards, mascot poses, backgrounds, effects, and fonts. Use those files directly. Placeholder rules below are retained only as a fallback for a future missing asset and do not override the production mapping in Section 21.
 
 ### 12.1 Temporary Assets to Use Now
 
@@ -597,30 +597,119 @@ The app is acceptable for the first rough build if:
 
 ## 19. Final Instruction to AI Agent
 
-Build the **rough working version first** with placeholder assets.  
-Do not wait for final illustrations.
+Maintain the working five-page flow and use the supplied production assets. Do not recolor the purple artwork to gold or brown.
 
 Priority order:
 1. working flow
-2. mobile UI
-3. card tap + flip interaction
-4. timer logic
-5. placeholder assets
+2. mobile UI and reference-position fidelity
+3. supplied purple production assets
+4. card tap + flip interaction
+5. timer logic
 6. polish
 
 The result should be a **presentation-ready rough prototype** that can later be upgraded with final visual assets.
 
 ---
 
-## 20. Quick Placeholder Summary
+## 20. Current Production Summary
 
-Use these temporary replacements now:
+- **Font** → Arabica regular and italic, loaded locally with `@font-face`
+- **Mascot** → supplied purple mascot and Post pose PNGs
+- **Card** → supplied purple mystery-card PNGs with CSS flip animation
+- **Background** → supplied `BG1.png`, `BG2.png`, and `BG3.png`
+- **Effects** → supplied magical orbit and sparkle overlays
+- **Materials** → lightweight local UI symbols until dedicated material artwork is supplied
+- **Video** → rounded preview panel using the matching purple mascot pose
 
-- **Mascot** → existing lavender blob mascot PNGs, or simple purple blob SVG
-- **Card** → purple mystery card with `?`
-- **Materials** → Lucide/Heroicons SVGs
-- **Exercise images** → simple placeholder illustration or mascot pose
-- **Video** → rounded thumbnail block with play icon
-- **Sparkles/background** → CSS gradients + small SVG stars
+Do not apply hue rotation, sepia, or gold filters to production artwork.
 
-Do **not** block development because final assets are not ready yet.
+---
+
+## 21. Implemented Visual System — 2026-08-16
+
+This section records the latest implemented state and overrides older placeholder guidance where there is a conflict.
+
+### 21.1 Reference Usage
+
+- The five-page draft image is used for **layout, scale, grouping, and element positioning only**.
+- The active app palette is **soft pastel purple**, based on the supplied BG, Effect, Card, Mascot, and Post files.
+- Keep the mobile canvas close to `390px` wide and preserve the bottom-action placement shown in the draft.
+
+### 21.2 Font
+
+All app text uses the local **Arabica** family with Thai-safe fallbacks.
+
+```text
+/public/assets/fonts/Arabica.otf
+/public/assets/fonts/Arabica-italic.otf
+/public/assets/fonts/Arabica.ttf
+/public/assets/fonts/Arabica-Italic.ttf
+```
+
+- Regular and italic faces are declared with `@font-face`.
+- `font-display: swap` is required.
+- The font applies globally, including Thai body copy, headings, labels, and buttons.
+
+### 21.3 Background Mapping
+
+```text
+/public/assets/backgrounds/BG1.png
+/public/assets/backgrounds/BG2.png
+/public/assets/backgrounds/BG3.png
+```
+
+- Page 1 `/` → `BG1.png`
+- Page 2 `/today` → `BG2.png`
+- Page 3 `/exercise` → `BG3.png`
+- Page 4 `/complete` → `BG1.png`
+- Page 5 `/challenge` → `BG3.png`
+
+Backgrounds use cover sizing and centered positioning with only a very light translucent overlay for text readability.
+
+### 21.4 Effect Mapping
+
+```text
+/public/assets/effects/Effect1.png
+/public/assets/effects/Effect2.png
+```
+
+- `Effect1.png` is the magical orbit placed behind the central fortune card on Page 1.
+- `Effect2.png` is a low-opacity sparkle overlay used decoratively across the five-page flow.
+- Effects must not intercept pointer events or cover readable content.
+
+### 21.5 Post / Pose Mapping
+
+```text
+/public/assets/poses/Post1.png
+/public/assets/poses/Post2.png
+/public/assets/poses/Post3.png
+/public/assets/poses/Post4.png
+/public/assets/poses/Post5.png
+```
+
+- `Post1.png` → available as the neutral/default production pose
+- `Post2.png` → Page 2 shoulder movement, video preview, and Page 3 primary pose
+- `Post2.png`, `Post3.png`, `Post4.png` → Page 3 three-step movement sequence
+- `Post5.png` → Page 4 congratulation pose
+- Existing `/public/assets/mascot/Mascot6.png` → Page 5 plank challenge pose
+
+### 21.6 Card and Color Rules
+
+- Use the original purple card assets in `/public/assets/cards/` without color filters.
+- Retain the stacked-card placement, central tappable card, glow state, flip animation, and bottom pill CTA from the reference layout.
+- Panels are translucent white/lavender with purple borders and soft blur.
+- Primary buttons use a lilac-to-purple raised gradient with white text.
+- Small warm-yellow sparkles are allowed as accents, but purple remains dominant.
+
+### 21.7 Page Positioning
+
+- Page 1: title at top, central stacked card and orbit, bottom pill CTA.
+- Page 2: fortune heading, focus word, shoulder pose, task panel, materials/video panel, bottom CTA.
+- Page 3: circular timer, movement pose, three instruction cards, bottom pause/start control.
+- Page 4: congratulation heading, large `Post5` mascot, message panel, three action cards.
+- Page 5: challenge heading, plank preview, materials, benefits, bottom CTA.
+
+### 21.8 Social Preview
+
+- The purple social card is stored at `/public/og-v3.png`.
+- Open Graph and X metadata use this image with the exact text `FITFORTUNE` and `เปิดดวง ฟิตสุขภาพ`.

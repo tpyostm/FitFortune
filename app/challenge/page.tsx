@@ -20,7 +20,7 @@ export default function ChallengePage() {
             <span className="video-time">00:30</span>
             <span className="challenge-play" aria-hidden="true">▶</span>
           </div>
-          <Mascot src="/assets/mascot/Mascot6.png" alt="มาสคอตพร้อมทำชาเลนจ์" className="challenge-mascot mascot-gold" />
+          <Mascot src="/assets/mascot/Mascot6.png" alt="มาสคอตพร้อมทำชาเลนจ์" className="challenge-mascot" />
         </div>
 
         <section className="white-panel challenge-video-panel">

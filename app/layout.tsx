@@ -9,7 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const baseUrl = new URL(`${protocol}://${host}`);
   const title = "FITFORTUNE — เปิดดวง ฟิตสุขภาพ";
   const description = "เปิดไพ่สุขภาพประจำวัน แล้วขยับร่างกายไปกับ FITFORTUNE";
-  const socialImage = new URL("/og-v2.png", baseUrl).toString();
+  const socialImage = new URL("/og-v3.png", baseUrl).toString();
 
   return {
     metadataBase: baseUrl,

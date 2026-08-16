@@ -52,7 +52,7 @@ export function ExerciseTimer({ challenge = false }: { challenge?: boolean }) {
               <span>{hasStarted ? running ? "กำลังทำอยู่!" : "พักหายใจก่อนได้" : "เริ่มได้เลย!"}</span>
             </div>
           </div>
-          <Mascot src={exercise.mascot} alt={`มาสคอตกำลังทำท่า${exercise.name}`} className="timer-mascot mascot-gold" />
+          <Mascot src={exercise.mascot} alt={`มาสคอตกำลังทำท่า${exercise.name}`} className="timer-mascot" />
         </div>
 
         <section className="exercise-steps">
@@ -60,7 +60,7 @@ export function ExerciseTimer({ challenge = false }: { challenge?: boolean }) {
           <div className="step-grid">
             {["วงไปด้านหน้า\n10 ครั้ง", "วงไปด้านหลัง\n10 ครั้ง", "สลับข้าง\nทำครบ 2 เซ็ต"].map((label, index) => (
               <div className="step-card" key={label}>
-                <Mascot src={exercise.mascot} alt="" className={`step-mascot mascot-gold step-${index + 1}`} />
+                <Mascot src={exercise.poses?.[index] ?? exercise.mascot} alt="" className={`step-mascot step-${index + 1}`} />
                 <span>{index + 1}. {label.split("\n").map((line) => <span key={line}>{line}</span>)}</span>
               </div>
             ))}
