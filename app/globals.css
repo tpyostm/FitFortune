@@ -377,13 +377,8 @@ button.complete-action-card { width: 100%; }
 .challenge-heading h1 { margin: 0; color: var(--brown-900); font-size: 25px; line-height: 1.35; }
 .challenge-heading h1 span { color: var(--gold-500); }
 .challenge-heading p { margin: 5px 0 11px; font-size: 15px; line-height: 1.35; }
-.challenge-hero { min-height: 205px; display: grid; grid-template-columns: 46% 54%; align-items: center; position: relative; overflow: hidden; padding: 12px 0 8px 14px; border: 1px solid #c59ee4; border-radius: 15px; background: linear-gradient(120deg,rgba(255,250,255,.92),rgba(225,207,239,.88)); backdrop-filter: blur(4px); }
-.challenge-hero > div:first-child { align-self: stretch; display: flex; flex-direction: column; position: relative; z-index: 2; padding-top: 8px; }
-.challenge-hero h2 { margin: 0; font-size: 20px; line-height: 1.25; }
-.challenge-hero p { margin: 3px 0 0; font-size: 14px; line-height: 1.35; }
-.video-time { margin-top: auto; font: 16px Arial,sans-serif; }
-.challenge-play { position: absolute; z-index: 3; left: 112px; top: 82px; width: 60px; height: 60px; display: grid; place-items: center; padding-left: 4px; color: white; border: 2px solid white; border-radius: 50%; background: rgba(73,67,56,.76); box-shadow: 0 4px 12px rgba(57,43,30,.26); font-size: 25px; }
-.challenge-mascot { width: 207px; height: 187px; margin-left: -15px; align-self: end; object-fit: contain; }
+.video-preview.has-cover.challenge-cover { height: auto; aspect-ratio: 1.94 / 1; border-radius: 15px; }
+.challenge-cover .video-cover { width: 106%; }
 .challenge-video-panel,.benefits-card { margin-top: 11px; }
 .challenge-video-panel { min-height: 116px; padding: 4px 10px 9px; }
 .challenge-page .resource-title { height: 27px; font-size: 13px; font-weight: 800; }
@@ -395,6 +390,7 @@ button.complete-action-card { width: 100%; }
 .benefits-card li { position: relative; margin: 3px 0; font-size: 14px; line-height: 1.35; }
 .benefits-card li::before { content: "✓"; position: absolute; left: -18px; color: var(--gold-500); font-weight: 900; }
 .challenge-page .primary-button { font-size: 21px; }
+.challenge-page .bottom-action { background: transparent; }
 .after-challenge { margin: 7px 0 0; text-align: center; font-size: 13px; line-height: 1.35; }
 
 @keyframes cardFloat { 0%,100% { transform: translateY(3px) rotate(-1deg); } 50% { transform: translateY(-8px) rotate(1deg); } }

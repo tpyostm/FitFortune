@@ -1,8 +1,6 @@
-import { dailyFortune } from "../../data/daily-fortune";
-import { Mascot, PageShell, PrimaryLink, TopBar } from "../../components/fitfortune-ui";
+import { PageShell, PrimaryLink, TopBar, VideoPreview } from "../../components/fitfortune-ui";
 
 export default function ChallengePage() {
-  const exercise = dailyFortune.challengeExercise;
   const recommendations = [
     { label: "ร่างกาย", src: "/assets/recommendations/Rec1.png" },
     { label: "หัวใจ", src: "/assets/recommendations/Rec2.png" },
@@ -18,15 +16,11 @@ export default function ChallengePage() {
           <p>ท่าที่ยากขึ้นอีกนิด แต่เห็นผลชัวร์ 💪</p>
         </header>
 
-        <div className="challenge-hero">
-          <div>
-            <h2>ท่า {exercise.name}</h2>
-            <p>(สำหรับผู้เริ่มต้น)</p>
-            <span className="video-time">00:30</span>
-            <span className="challenge-play" aria-hidden="true">▶</span>
-          </div>
-          <Mascot src="/assets/mascot/Mascot6.png" alt="มาสคอตพร้อมทำชาเลนจ์" className="challenge-mascot" />
-        </div>
+        <VideoPreview
+          label="ท่า Plank แตะไหล่ สำหรับผู้เริ่มต้น"
+          coverSrc="/assets/video/plank-shoulder-cover.png"
+          className="challenge-cover"
+        />
 
         <section className="white-panel challenge-video-panel">
           <div className="resource-title"><span>แนะนำอุปกรณ์</span></div>

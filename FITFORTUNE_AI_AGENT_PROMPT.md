@@ -895,3 +895,13 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
 - Keep the normal Page 4 UI unchanged. Show a small diagnostic counter panel only when the route is opened with `?counts=1`, for example `/complete?counts=1`.
 - Label the panel clearly as `ยอดกดในอุปกรณ์นี้` because this no-backend version counts only taps made in the current browser/device; it is not a global or unique-person total.
 - Clearing browser site data or using another browser/device starts a separate count. A backend analytics store will be required for an aggregated all-user total later.
+
+---
+
+## 40. Page 5 Plank Video Cover and Background Cleanup — 2026-08-17
+
+- Save the newly supplied Plank shoulder-tap cover as `/public/assets/video/plank-shoulder-cover.png`.
+- Replace the separately composed Page 5 Plank text, `Mascot6.png`, duration, and play button with the complete supplied artwork through the shared `VideoPreview` cover mode used on Page 2.
+- Do not overlay duplicate copy or another play symbol because they are already included in the supplied cover.
+- Crop the source file's outer white canvas in the displayed cover using a `1.94:1` viewport and a centered image at `106%` width, preserving the inner lavender frame and all important artwork.
+- Make the Page 5 bottom action wrapper transparent so the `BG3.png` background continues naturally behind and below the `เริ่ม Challenge!` button without a mismatched color band.
