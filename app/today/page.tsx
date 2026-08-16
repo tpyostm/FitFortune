@@ -40,7 +40,7 @@ export default function TodayPage() {
             ))}
           </div>
           <div className="resource-title"><span>คลิปแนะนำ (สำหรับทุกกลุ่ม)</span></div>
-          <VideoPreview label="ท่าหมุนไหล่คลายปวด" description="" mascotSrc="/assets/poses/Post6.png" />
+          <VideoPreview label="หมุนไหล่คลายปวด ดูคลิป (30 วินาที)" coverSrc="/assets/video/shoulder-clip-cover.png" />
         </section>
       </div>
       <div className="bottom-action">

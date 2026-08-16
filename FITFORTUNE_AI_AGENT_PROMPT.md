@@ -821,3 +821,13 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
 - Replace the generated circle and chevron in the shared `TopBar` with this image on every route that renders a back button.
 - Render the artwork at `40 × 40px` while preserving the existing route destinations, accessible label, and `42px` top-bar grid slot.
 - Remove the generated border, background, shadow, and chevron alignment because those visual details are already part of the supplied artwork.
+
+---
+
+## 32. Page 2 Full Video Cover Replacement — 2026-08-17
+
+- Save the newly supplied shoulder-exercise cover as `/public/assets/video/shoulder-clip-cover.png`.
+- Use the complete image as the Page 2 recommended-video preview instead of separately composing `Post6.png`, a play control, and text.
+- Do not overlay duplicate text or another play icon because both are already included in the supplied artwork.
+- Preserve the complete `3:1` artwork inside the available card width so the mascot, title, duration, and rounded cover frame are not cropped.
+- Keep the preview accessible with the label `หมุนไหล่คลายปวด ดูคลิป (30 วินาที)`.

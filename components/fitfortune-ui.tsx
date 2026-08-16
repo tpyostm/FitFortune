@@ -59,13 +59,23 @@ export function VideoPreview({
   label = "คลิปตัวอย่าง",
   description = "หมุนไหล่คลายปวด ดูคลิป (1:30 นาที)",
   mascotSrc = "/assets/poses/Post2.png",
+  coverSrc,
   className = "",
 }: {
   label?: string;
   description?: string;
   mascotSrc?: string;
+  coverSrc?: string;
   className?: string;
 }) {
+  if (coverSrc) {
+    return (
+      <div className={`video-preview has-cover ${className}`} role="img" aria-label={`${label} (ภาพปกคลิป)`}>
+        <img className="video-cover" src={coverSrc} alt="" aria-hidden="true" />
+      </div>
+    );
+  }
+
   return (
     <div className={`video-preview ${className}`} role="img" aria-label={`${label} (ภาพตัวอย่าง)`}>
       <img className="video-mascot" src={mascotSrc} alt="" />
