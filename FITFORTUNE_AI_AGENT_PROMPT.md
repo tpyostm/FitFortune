@@ -740,3 +740,11 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
 - Change the recommendation heading to `คำแนะนำ 3 ด้าน`.
 - Simplify the video text to `ท่าหมุนไหล่คลายปวดด` and scale it to fill the remaining text area cleanly.
 - Move the `เริ่มเลย!` button upward from the bottom edge for better visual balance.
+
+---
+
+## 24. Page 3 Timer Control Position Update — 2026-08-17
+
+- Move the timer control group upward by `72px` so the gap below the exercise instructions is approximately `38px` on the mobile layout.
+- Apply the same position to all timer states: `เริ่มจับเวลา`, `หยุดชั่วคราว`, and `ทำต่อ`.
+- Keep the existing timer logic, button size, copy, and visual style unchanged.

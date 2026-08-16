@@ -308,7 +308,7 @@ a, button { touch-action: manipulation; }
 .video-copy small { margin-top: 3px; }
 
 /* Exercise timer */
-.timer-content { padding-top: 0; padding-bottom: 82px; display: flex; flex-direction: column; align-items: center; }
+.timer-content { padding-top: 0; padding-bottom: 154px; display: flex; flex-direction: column; align-items: center; }
 .timer-visual-wrap { width: 100%; height: 407px; padding-top: 15px; position: relative; display: flex; flex-direction: column; align-items: center; }
 .timer-ring { --timer-progress: 0deg; width: 215px; height: 215px; display: grid; place-items: center; position: relative; border-radius: 50%; background: conic-gradient(#934fcb var(--timer-progress),#ead6fb 0); box-shadow: 0 0 0 2px #8b4abf,0 10px 25px rgba(95,42,134,.16); }
 .timer-ring::before { content: ""; position: absolute; inset: 9px; border-radius: 50%; background: radial-gradient(circle at 50% 30%,#fff,#fbf4ff 72%); border: 1px solid rgba(127,67,172,.25); }
@@ -332,7 +332,7 @@ a, button { touch-action: manipulation; }
 .timer-button > span:last-child { position: static; font-size: inherit; font-family: inherit; }
 .timer-status { margin: 8px 0 0; text-align: center; font-size: 9px; }
 .today-page .bottom-action { position: absolute; left: 0; right: 0; bottom: 32px; }
-.timer-page .bottom-action,
+.timer-page .bottom-action { position: absolute; left: 0; right: 0; bottom: 72px; }
 .challenge-page .bottom-action { position: absolute; left: 0; right: 0; bottom: 0; }
 
 /* Complete */
