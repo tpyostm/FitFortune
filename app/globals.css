@@ -315,7 +315,7 @@ a, button { touch-action: manipulation; }
 .timer-inner { position: relative; z-index: 2; text-align: center; }
 .timer-inner strong { display: block; color: var(--brown-900); font: 900 58px/.95 Arial,sans-serif; letter-spacing: -.04em; }
 .timer-inner span { display: block; margin-top: 9px; font-size: 13px; }
-.timer-mascot { width: 155px; height: 155px; margin-top: 2px; object-fit: contain; animation: mascotBounce 2.3s ease-in-out infinite; }
+.timer-mascot { width: 155px; height: 155px; margin-top: 2px; object-fit: contain; }
 .exercise-steps { width: 100%; padding: 9px 8px 10px; border: 1px solid var(--line); border-radius: 14px; background: rgba(255,250,255,.72); backdrop-filter: blur(4px); }
 .exercise-steps h2 { margin: 0 0 8px; text-align: center; font-size: 11px; font-weight: 500; }
 .step-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 5px; }
@@ -396,7 +396,6 @@ button.complete-action-card { width: 100%; }
 @keyframes breathe { 0%,100% { transform: scale(.92); opacity: .4; } 50% { transform: scale(1.08); opacity: .85; } }
 @keyframes tapLabelPulse { 0%,100% { transform: translateX(-50%) scale(.97); opacity: .78; } 50% { transform: translateX(-50%) scale(1.02); opacity: 1; } }
 @keyframes twinkle { 0%,100% { opacity: .25; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.2) rotate(38deg); } }
-@keyframes mascotBounce { 0%,100% { transform: translateY(2px); } 50% { transform: translateY(-6px); } }
 @keyframes celebrationHop { 0%,100% { transform: translateY(3px) rotate(-7deg); } 50% { transform: translateY(-8px) rotate(-2deg); } }
 @keyframes openingGlow { 0% { transform: scale(.85); } 55% { transform: scale(1.4); opacity: 1; } 100% { transform: scale(1.8); opacity: 0; } }
 @keyframes revealCard { 0% { transform: rotateY(0) scale(1); } 45% { transform: rotateY(90deg) scale(1.06); } 78%,100% { transform: rotateY(180deg) scale(1.04); } }

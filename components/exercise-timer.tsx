@@ -9,8 +9,21 @@ export function ExerciseTimer({ challenge = false }: { challenge?: boolean }) {
   const [timeLeft, setTimeLeft] = useState(exercise.durationSec);
   const [running, setRunning] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
+  const [poseFrame, setPoseFrame] = useState(0);
   const completed = useRef(false);
   const progress = ((exercise.durationSec - timeLeft) / exercise.durationSec) * 360;
+  const poseSequence = exercise.poses?.length
+    ? [exercise.poses[0], exercise.poses[1], exercise.poses[2], exercise.poses[1]]
+    : [exercise.mascot];
+
+  useEffect(() => {
+    setPoseFrame(0);
+    if (!exercise.poses || exercise.poses.length < 3) return;
+    const poseTimer = window.setInterval(() => {
+      setPoseFrame((current) => (current + 1) % 4);
+    }, 700);
+    return () => window.clearInterval(poseTimer);
+  }, [exercise.poses]);
 
   useEffect(() => {
     if (!running) return;
@@ -52,7 +65,7 @@ export function ExerciseTimer({ challenge = false }: { challenge?: boolean }) {
               <span>{hasStarted ? running ? "กำลังทำอยู่!" : "พักหายใจก่อนได้" : "เริ่มได้เลย!"}</span>
             </div>
           </div>
-          <Mascot src={exercise.mascot} alt={`มาสคอตกำลังทำท่า${exercise.name}`} className="timer-mascot" />
+          <Mascot src={poseSequence[poseFrame] ?? exercise.mascot} alt={`มาสคอตกำลังทำท่า${exercise.name}`} className="timer-mascot" />
         </div>
 
         <section className="exercise-steps">

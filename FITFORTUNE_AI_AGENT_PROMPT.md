@@ -774,3 +774,14 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
 - Increase every Page 5 text size by at least `4px` from its previous value, including the heading, supporting copy, exercise text, duration, section labels, recommendation labels, benefits, CTA, and helper text.
 - Remove the oversized minimum height from the benefits panel and tighten its vertical padding and list spacing so the panel fits its content.
 - Move the `เริ่ม Challenge!` action upward with a `75px` base offset plus tall-viewport compensation, keeping an approximately `26px` gap below the benefits panel on the `390 × 844` mobile layout.
+
+---
+
+## 27. Page 3 Mascot Pose Loop Update — 2026-08-17
+
+- Remove the vertical floating/bouncing animation from the large mascot below the timer.
+- On the main exercise route, swap the mascot image every `700ms` in this continuous sequence:
+  - `Post2.png` → `Post3.png` → `Post4.png` → `Post3.png` → repeat from `Post2.png`.
+- Keep the mascot frame at a fixed size so pose changes do not move the surrounding layout.
+- Keep challenge-mode mascot behavior static when no pose sequence is provided.
+- Do not change timer timing, start/pause/resume behavior, or navigation after completion.
