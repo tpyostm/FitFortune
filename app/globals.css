@@ -334,7 +334,7 @@ a, button { touch-action: manipulation; }
 .timer-status { margin: 8px 0 0; text-align: center; font-size: 9px; }
 .today-page .bottom-action { position: absolute; left: 0; right: 0; bottom: 40px; background: transparent; }
 .timer-page .bottom-action { position: absolute; left: 0; right: 0; bottom: calc(72px + max(0px, 100svh - 812px)); background: transparent; }
-.challenge-page .bottom-action { position: absolute; left: 0; right: 0; bottom: calc(111px + max(0px, 100svh - 812px)); }
+.challenge-page .bottom-action { position: absolute; left: 0; right: 0; bottom: calc(99px + max(0px, 100svh - 812px)); }
 
 /* Complete */
 .complete-page {
@@ -422,7 +422,7 @@ button.complete-action-card { width: 100%; }
   .timer-ring { width: 205px; height: 205px; }
   .timer-mascot { width: 160px; height: 160px; }
   .step-card { min-height: 120px; }
-  .challenge-page .bottom-action { bottom: 71px; }
+  .challenge-page .bottom-action { bottom: 59px; }
   .complete-content { padding-top: 25px; }
   .celebration-mascot-wrap { height: 205px; }
   .celebration-mascot { width: 180px; height: 180px; }

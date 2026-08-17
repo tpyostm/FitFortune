@@ -951,3 +951,11 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
 - Move the Page 5 bottom action group down by another `4px` on mobile viewports up to `720px` tall, changing the compact-screen bottom offset from `75px` to `71px`.
 - Increase the visible clearance below the benefits card from approximately `8px` to `12px`, matching the spacing rhythm used between other Page 5 sections.
 - Keep the normal-height CTA position unchanged and preserve a non-overlapping layout at compact heights.
+
+---
+
+## 47. Page 5 Additional CTA Offset — 2026-08-17
+
+- Move the complete Page 5 bottom action group down by an additional `12px` at every supported viewport height.
+- Change the normal bottom offset from `111px` to `99px` and the compact-screen offset from `71px` to `59px`, increasing the visible gap below the benefits card from approximately `12px` to `24px`.
+- Keep all button styling, helper copy, transparent background, and navigation behavior unchanged.
