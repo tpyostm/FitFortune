@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Mascot, PageShell } from "./ui";
+import { appHref, appShareUrl, assetPath } from "./paths";
 
 type CompleteAction = "challenge" | "share";
 type CompleteActionCounts = Record<CompleteAction, number>;
@@ -53,7 +54,7 @@ export function CongratsActions({ showCounts = false }: { showCounts?: boolean }
     const shareData = {
       title: "FITFORTUNE",
       text: "วันนี้ฉันขยับร่างกายตามคำทำนายแล้ว! มาเปิดดวงสุขภาพด้วยกัน ✦",
-      url: window.location.origin,
+      url: appShareUrl(),
     };
 
     try {
@@ -92,12 +93,12 @@ export function CongratsActions({ showCounts = false }: { showCounts?: boolean }
         </section>
 
         <div className="action-stack">
-          <a className="complete-action-card" href="/challenge" onClick={() => recordClick("challenge")}>
-            <img className="action-icon" src="/assets/recommendations/Rec4.png" alt="" aria-hidden="true" />
+          <a className="complete-action-card" href={appHref("/challenge")} onClick={() => recordClick("challenge")}>
+            <img className="action-icon" src={assetPath("/assets/recommendations/Rec4.png")} alt="" aria-hidden="true" />
             <b>เสริมดวง<br />เฉพาะตัว</b>
           </a>
           <button className="complete-action-card" type="button" onClick={share}>
-            <img className="action-icon" src="/assets/recommendations/Rec5.png" alt="" aria-hidden="true" />
+            <img className="action-icon" src={assetPath("/assets/recommendations/Rec5.png")} alt="" aria-hidden="true" />
             <b>ส่งต่อ<br />ให้เพื่อน</b>
           </button>
           {shareStatus && <p className="share-status" role="status">{shareStatus}</p>}

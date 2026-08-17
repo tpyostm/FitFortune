@@ -27,6 +27,7 @@
 npm run dev
 npm run lint
 npm run build
+npm run build:pages
 npm test
 ```
 
@@ -41,3 +42,6 @@ npm test
 ## การเผยแพร่
 
 โปรเจกต์นี้ deploy ผ่าน OpenAI Sites โดยใช้ค่าใน `.openai/hosting.json`
+
+- Live site: <https://fitfortune-th.tomamimumemo.chatgpt.site>
+- GitHub Pages: <https://tpyostm.github.io/FitFortune/>

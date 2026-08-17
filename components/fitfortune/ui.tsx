@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { appHref, assetPath } from "./paths";
 
 type ClassNameProp = { className?: string };
 
@@ -10,7 +11,7 @@ export function PageShell({ children, className }: { children: ReactNode } & Cla
   return (
     <main className="app-stage">
       <section className={classNames("phone-canvas inner-canvas", className)}>
-        <img className="effect-sparkle-sheet" src="/assets/effects/Effect2.png" alt="" aria-hidden="true" />
+        <img className="effect-sparkle-sheet" src={assetPath("/assets/effects/Effect2.png")} alt="" aria-hidden="true" />
         <MagicDust />
         {children}
       </section>
@@ -29,8 +30,8 @@ function MagicDust() {
 export function TopBar({ backHref = "/", label = "FITFORTUNE" }: { backHref?: string; label?: string }) {
   return (
     <nav className="top-bar" aria-label="เมนูหน้า">
-      <a className="back-button" href={backHref} aria-label="ย้อนกลับ">
-        <img src="/assets/ui/back-button.png" alt="" aria-hidden="true" />
+      <a className="back-button" href={appHref(backHref)} aria-label="ย้อนกลับ">
+        <img src={assetPath("/assets/ui/back-button.png")} alt="" aria-hidden="true" />
       </a>
       <span className="top-label">{label}</span>
       <span className="top-bar-spacer" aria-hidden="true" />
@@ -40,7 +41,7 @@ export function TopBar({ backHref = "/", label = "FITFORTUNE" }: { backHref?: st
 
 export function PrimaryLink({ href, children, className }: { href: string; children: ReactNode } & ClassNameProp) {
   return (
-    <a className={classNames("primary-button", className)} href={href}>
+    <a className={classNames("primary-button", className)} href={appHref(href)}>
       {children}
       <span aria-hidden="true">›</span>
     </a>
@@ -48,7 +49,7 @@ export function PrimaryLink({ href, children, className }: { href: string; child
 }
 
 export function Mascot({ src, alt, className }: { src: string; alt: string } & ClassNameProp) {
-  return <img className={classNames("mascot", className)} src={src} alt={alt} />;
+  return <img className={classNames("mascot", className)} src={assetPath(src)} alt={alt} />;
 }
 
 export function RecommendationGrid({
@@ -61,7 +62,7 @@ export function RecommendationGrid({
     <div className={classNames("recommendation-list", className)}>
       {items.map((item) => (
         <div className="recommendation-item" key={item.label}>
-          <img src={item.src} alt="" aria-hidden="true" />
+          <img src={assetPath(item.src)} alt="" aria-hidden="true" />
           <span>{item.label}</span>
         </div>
       ))}
@@ -79,7 +80,7 @@ export function VideoPreview({
 } & ClassNameProp) {
   return (
     <div className={classNames("video-preview", className)} role="img" aria-label={`${label} (ภาพปกคลิป)`}>
-      <img className="video-cover" src={coverSrc} alt="" aria-hidden="true" />
+      <img className="video-cover" src={assetPath(coverSrc)} alt="" aria-hidden="true" />
     </div>
   );
 }
