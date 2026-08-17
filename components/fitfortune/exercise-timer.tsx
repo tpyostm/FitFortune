@@ -3,18 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import { exercises, poseFrameIntervalMs } from "@/content/fitfortune";
 import { Mascot, PageShell, TopBar } from "./ui";
-import { useSearchFlag } from "./use-search-flag";
 
 const sessionStorageKey = "fitfortune_sessions";
 
-export function ExerciseTimer({ challenge: challengeProp = false }: { challenge?: boolean }) {
-  const challenge = useSearchFlag("mode", "challenge", challengeProp);
-  // Every piece of timer state is seeded from the exercise, so re-key rather
-  // than resync when a static export resolves the mode after hydration.
-  return <Timer key={challenge ? "challenge" : "main"} challenge={challenge} />;
-}
-
-function Timer({ challenge }: { challenge: boolean }) {
+export function ExerciseTimer({ challenge = false }: { challenge?: boolean }) {
   const mode = challenge ? "challenge" : "main";
   const exercise = exercises[mode];
   const [timeLeft, setTimeLeft] = useState<number>(exercise.durationSec);
