@@ -14,6 +14,7 @@ export default function ChallengePage() {
         <VideoPreview
           label="ท่า Plank แตะไหล่ สำหรับผู้เริ่มต้น"
           coverSrc="/assets/video/plank-shoulder-cover.png"
+          youtubeId="6NTUnpIMDWU"
           className="challenge-cover"
         />
 
