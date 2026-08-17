@@ -422,6 +422,7 @@ button.complete-action-card { width: 100%; }
   .timer-ring { width: 205px; height: 205px; }
   .timer-mascot { width: 160px; height: 160px; }
   .step-card { min-height: 120px; }
+  .challenge-page .bottom-action { bottom: 75px; }
   .complete-content { padding-top: 25px; }
   .celebration-mascot-wrap { height: 205px; }
   .celebration-mascot { width: 180px; height: 180px; }

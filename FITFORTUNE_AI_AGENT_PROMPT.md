@@ -935,3 +935,11 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
 
 - Add a `10px` vertical gap between the fortune task card and the equipment recommendation card on Page 2.
 - Keep the content, dimensions, and internal layout of both cards unchanged while making their boundaries visually distinct.
+
+---
+
+## 45. Page 5 Short-Screen CTA Clearance — 2026-08-17
+
+- On mobile viewports up to `720px` tall, move the complete Page 5 bottom action group downward by changing its bottom offset to `75px`.
+- Keep the normal-height Page 5 position unchanged while guaranteeing that the `เริ่ม Challenge!` button no longer overlaps the benefits card on the compact `760px` phone canvas.
+- Preserve the button, helper copy, transparent background, and challenge navigation behavior.
