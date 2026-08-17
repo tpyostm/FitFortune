@@ -57,6 +57,11 @@ a, button { touch-action: manipulation; }
     radial-gradient(circle at 8% 20%, rgba(213,179,247,.48), transparent 23rem),
     radial-gradient(circle at 90% 78%, rgba(250,202,255,.32), transparent 26rem),
     #eee3f9;
+  /* Page classes (.today-page, .complete-page, ...) also land on the stage so the
+     artwork can go full-bleed behind the canvas on wide screens. */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .phone-canvas {
   width: min(100%, 390px);
@@ -389,10 +394,64 @@ button.complete-action-card { width: 100%; }
 @keyframes openingGlow { 0% { transform: scale(.85); } 55% { transform: scale(1.4); opacity: 1; } 100% { transform: scale(1.8); opacity: 0; } }
 @keyframes revealCard { 0% { transform: rotateY(0) scale(1); } 45% { transform: rotateY(90deg) scale(1.06); } 78%,100% { transform: rotateY(180deg) scale(1.04); } }
 
+/* ---------------------------------------------------------------
+   Wide screens (tablet + desktop)
+
+   The whole design is pixel-tuned to a 390x812 canvas, so instead of
+   reflowing it we keep that canvas intact and scale it up with `zoom`
+   until it fills the viewport height. The page artwork goes full-bleed
+   on the stage behind it, and the phone frame (border/radius/shadow)
+   is dropped so it reads as a real web page, not a mockup.
+
+   `zoom` is stepped through media queries because CSS cannot divide a
+   viewport length by a number to get a unitless scale factor. Each step
+   is `threshold / 812`, so the canvas always fits the band it applies to.
+   --------------------------------------------------------------- */
 @media (min-width: 560px) {
-  .app-stage { padding: 24px; }
-  .phone-canvas { min-height: 812px; border-radius: 22px; box-shadow: 0 22px 60px rgba(85,52,22,.12); }
+  .app-stage {
+    --app-zoom: .78;
+    padding: 0;
+    place-items: safe center;
+    background-attachment: fixed;
+  }
+  .landing-stage {
+    background-image: linear-gradient(rgba(255,255,255,.06),rgba(232,204,255,.08)), url("/assets/backgrounds/BG1.png");
+  }
+
+  .app-stage .phone-canvas {
+    zoom: var(--app-zoom);
+    width: 390px;
+    min-height: 812px;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    /* The stage carries the artwork now; a second copy at a different
+       scale would show a seam down the edge of the canvas. */
+    background-image: none;
+    background-color: transparent;
+  }
+
+  /* These offsets lean on `100svh` to pad out a canvas that is taller than
+     the 812px design. On the stage the canvas is exactly 812px, and inside a
+     zoomed subtree `svh` still resolves against the raw viewport, so the
+     padding turns into a gap that shoves the button over the content. */
+  .timer-page.phone-canvas .bottom-action { bottom: 72px; }
+  .challenge-page.phone-canvas .bottom-action { bottom: 99px; }
 }
+@media (min-width: 560px) and (min-height: 660px)  { .app-stage { --app-zoom: .81; } }
+@media (min-width: 560px) and (min-height: 700px)  { .app-stage { --app-zoom: .86; } }
+@media (min-width: 560px) and (min-height: 740px)  { .app-stage { --app-zoom: .91; } }
+@media (min-width: 560px) and (min-height: 780px)  { .app-stage { --app-zoom: .96; } }
+@media (min-width: 560px) and (min-height: 820px)  { .app-stage { --app-zoom: 1.009; } }
+@media (min-width: 560px) and (min-height: 860px)  { .app-stage { --app-zoom: 1.058; } }
+@media (min-width: 560px) and (min-height: 900px)  { .app-stage { --app-zoom: 1.108; } }
+@media (min-width: 560px) and (min-height: 950px)  { .app-stage { --app-zoom: 1.169; } }
+@media (min-width: 560px) and (min-height: 1000px) { .app-stage { --app-zoom: 1.231; } }
+@media (min-width: 560px) and (min-height: 1060px) { .app-stage { --app-zoom: 1.305; } }
+@media (min-width: 560px) and (min-height: 1120px) { .app-stage { --app-zoom: 1.379; } }
+@media (min-width: 560px) and (min-height: 1200px) { .app-stage { --app-zoom: 1.477; } }
+@media (min-width: 560px) and (min-height: 1300px) { .app-stage { --app-zoom: 1.600; } }
+@media (min-width: 560px) and (min-height: 1400px) { .app-stage { --app-zoom: 1.723; } }
 @media (max-height: 720px) and (max-width: 559px) {
   .phone-canvas { min-height: 760px; }
   .landing-canvas { padding: 22px 20px 28px; }

@@ -8,7 +8,7 @@ function classNames(...values: (string | undefined)[]) {
 
 export function PageShell({ children, className }: { children: ReactNode } & ClassNameProp) {
   return (
-    <main className="app-stage">
+    <main className={classNames("app-stage", className)}>
       <section className={classNames("phone-canvas inner-canvas", className)}>
         <img className="effect-sparkle-sheet" src="/assets/effects/Effect2.png" alt="" aria-hidden="true" />
         <MagicDust />

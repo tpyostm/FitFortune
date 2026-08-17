@@ -42,3 +42,6 @@ yarn-error.log*
 
 # local source-art duplicates (runtime copies live in public/assets)
 /source-assets/recommendations/*.png
+
+# local tooling config (dev server launch settings)
+/.claude/
