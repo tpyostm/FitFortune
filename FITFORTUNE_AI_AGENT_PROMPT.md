@@ -959,3 +959,22 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
 - Move the complete Page 5 bottom action group down by an additional `12px` at every supported viewport height.
 - Change the normal bottom offset from `111px` to `99px` and the compact-screen offset from `71px` to `59px`, increasing the visible gap below the benefits card from approximately `12px` to `24px`.
 - Keep all button styling, helper copy, transparent background, and navigation behavior unchanged.
+
+---
+
+## 48. Full QA, Refactor, and Workspace Cleanup — 2026-08-17
+
+- Refactor shared UI into `components/fitfortune/` and centralize exercise/recommendation content in `content/fitfortune.ts`.
+- Replace duplicated Page 2/Page 5 recommendation markup with a reusable `RecommendationGrid`.
+- Remove the unused generic material list and non-cover video-preview branches and styles while preserving the current artwork-based covers.
+- Fix both React Hooks lint errors by resetting pose state in the timer action and deferring local counter hydration.
+- Make the timer pose loop use the actual configured frame count and keep the required `Post2 → Post3 → Post4 → Post3` sequence.
+- Correct the Challenge timer cards so they describe Plank setup, alternating shoulder taps, and core stability instead of the main shoulder-circle instructions.
+- Harden session history parsing when existing local storage is not an array and clean up the landing navigation timeout on unmount.
+- Add explicit favicon metadata and decorative accessibility annotations.
+- Replace the obsolete starter tests with 9 FITFORTUNE tests covering all 6 rendered route variants, metadata, runtime asset references, and removal of starter-only files.
+- Reorganize design references and non-runtime originals into `docs/reference/` and `source-assets/`; keep only runtime files in `public/assets/`.
+- Remove exact duplicate root `Card/` and `Mascot/` assets, relocate the local Rec source copies outside the project root, and remove unused starter icons/old social images.
+- Remove unused starter authentication, D1/Drizzle examples, dependencies, and documentation; rewrite the README for the actual app.
+- Validate the final app with ESLint, TypeScript, build, 9/9 automated tests, responsive Browser QA, full timer completion, asset loading, console logs, and baseline accessibility checks.
+- Record detailed findings and the complete test matrix in `docs/QA_REPORT.md`.

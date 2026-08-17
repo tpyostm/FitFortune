@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Mascot, PageShell } from "./fitfortune-ui";
+import { Mascot, PageShell } from "./ui";
 
 type CompleteAction = "challenge" | "share";
 type CompleteActionCounts = Record<CompleteAction, number>;
@@ -9,28 +9,33 @@ type CompleteActionCounts = Record<CompleteAction, number>;
 const clickCountKey = "fitfortune_complete_action_clicks";
 const emptyClickCounts: CompleteActionCounts = { challenge: 0, share: 0 };
 
+function normalizeCount(value: unknown) {
+  const count = Number(value);
+  return Number.isFinite(count) ? Math.max(0, Math.floor(count)) : 0;
+}
+
 function readClickCounts(): CompleteActionCounts {
   if (typeof window === "undefined") return emptyClickCounts;
   try {
     const stored = JSON.parse(window.localStorage.getItem(clickCountKey) || "{}");
     return {
-      challenge: Number.isFinite(Number(stored.challenge)) ? Math.max(0, Number(stored.challenge)) : 0,
-      share: Number.isFinite(Number(stored.share)) ? Math.max(0, Number(stored.share)) : 0,
+      challenge: normalizeCount(stored.challenge),
+      share: normalizeCount(stored.share),
     };
   } catch {
     return emptyClickCounts;
   }
 }
 
-export function CongratsActions() {
+export function CongratsActions({ showCounts = false }: { showCounts?: boolean }) {
   const [shareStatus, setShareStatus] = useState("");
   const [clickCounts, setClickCounts] = useState<CompleteActionCounts>(emptyClickCounts);
-  const [showCounts, setShowCounts] = useState(false);
 
   useEffect(() => {
-    setClickCounts(readClickCounts());
-    setShowCounts(new URLSearchParams(window.location.search).get("counts") === "1");
-  }, []);
+    if (!showCounts) return;
+    const frame = window.requestAnimationFrame(() => setClickCounts(readClickCounts()));
+    return () => window.cancelAnimationFrame(frame);
+  }, [showCounts]);
 
   function recordClick(action: CompleteAction) {
     const current = readClickCounts();
@@ -50,6 +55,7 @@ export function CongratsActions() {
       text: "วันนี้ฉันขยับร่างกายตามคำทำนายแล้ว! มาเปิดดวงสุขภาพด้วยกัน ✦",
       url: window.location.origin,
     };
+
     try {
       if (navigator.share) {
         await navigator.share(shareData);
@@ -73,11 +79,11 @@ export function CongratsActions() {
         </header>
 
         <div className="celebration-mascot-wrap">
-          <span className="celebration-ring" />
+          <span className="celebration-ring" aria-hidden="true" />
           <Mascot src="/assets/poses/Post5.png" alt="มาสคอตดีใจที่ทำภารกิจสำเร็จ" className="celebration-mascot" />
-          <span className="star-pop star-one">★</span>
-          <span className="star-pop star-two">✦</span>
-          <span className="star-pop star-three">★</span>
+          <span className="star-pop star-one" aria-hidden="true">★</span>
+          <span className="star-pop star-two" aria-hidden="true">✦</span>
+          <span className="star-pop star-three" aria-hidden="true">★</span>
         </div>
 
         <section className="white-panel boost-card">
@@ -86,8 +92,14 @@ export function CongratsActions() {
         </section>
 
         <div className="action-stack">
-          <a className="complete-action-card" href="/challenge" onClick={() => recordClick("challenge")}><img className="action-icon" src="/assets/recommendations/Rec4.png" alt="" /><b>เสริมดวง<br />เฉพาะตัว</b></a>
-          <button className="complete-action-card" type="button" onClick={share}><img className="action-icon" src="/assets/recommendations/Rec5.png" alt="" /><b>ส่งต่อ<br />ให้เพื่อน</b></button>
+          <a className="complete-action-card" href="/challenge" onClick={() => recordClick("challenge")}>
+            <img className="action-icon" src="/assets/recommendations/Rec4.png" alt="" aria-hidden="true" />
+            <b>เสริมดวง<br />เฉพาะตัว</b>
+          </a>
+          <button className="complete-action-card" type="button" onClick={share}>
+            <img className="action-icon" src="/assets/recommendations/Rec5.png" alt="" aria-hidden="true" />
+            <b>ส่งต่อ<br />ให้เพื่อน</b>
+          </button>
           {shareStatus && <p className="share-status" role="status">{shareStatus}</p>}
           {showCounts && (
             <aside className="local-click-counts" aria-label="ยอดกดในอุปกรณ์นี้">
@@ -98,7 +110,9 @@ export function CongratsActions() {
             </aside>
           )}
         </div>
-        <p className="complete-note"><a href="https://lin.ee/Pwo0SPR" target="_blank" rel="noreferrer">Add LINE OA เพื่อดูกิจกรรมอื่นๆ ของเรา</a></p>
+        <p className="complete-note">
+          <a href="https://lin.ee/Pwo0SPR" target="_blank" rel="noopener noreferrer">Add LINE OA เพื่อดูกิจกรรมอื่นๆ ของเรา</a>
+        </p>
       </div>
     </PageShell>
   );

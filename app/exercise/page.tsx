@@ -1,4 +1,4 @@
-import { ExerciseTimer } from "../../components/exercise-timer";
+import { ExerciseTimer } from "@/components/fitfortune/exercise-timer";
 
 export default async function ExercisePage({ searchParams }: { searchParams: Promise<{ mode?: string }> }) {
   const params = await searchParams;

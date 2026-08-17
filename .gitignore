@@ -38,3 +38,7 @@ yarn-error.log*
 /.wrangler/
 /outputs/
 /work/
+/tsconfig.tsbuildinfo
+
+# local source-art duplicates (runtime copies live in public/assets)
+/source-assets/recommendations/*.png

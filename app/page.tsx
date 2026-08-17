@@ -1,21 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const [opening, setOpening] = useState(false);
+  const navigationTimer = useRef<number | null>(null);
+
+  useEffect(() => () => {
+    if (navigationTimer.current !== null) window.clearTimeout(navigationTimer.current);
+  }, []);
 
   function openFortune() {
     if (opening) return;
     setOpening(true);
-    window.setTimeout(() => window.location.assign("/today"), 1180);
+    navigationTimer.current = window.setTimeout(() => window.location.assign("/today"), 1180);
   }
 
   return (
     <main className="app-stage landing-stage">
-      <div className="ambient ambient-one" />
-      <div className="ambient ambient-two" />
-      <section className="phone-canvas landing-canvas draft-landing">
+      <section className="phone-canvas landing-canvas">
         <img className="effect-sparkle-sheet landing-sparkle-sheet" src="/assets/effects/Effect2.png" alt="" aria-hidden="true" />
         <div className="sparkles" aria-hidden="true">
           <span>★</span><span>✦</span><span>★</span><span>✧</span><span>★</span><span>✦</span>

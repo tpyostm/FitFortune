@@ -1,25 +1,19 @@
 import assert from "node:assert/strict";
-import { access, readFile, readdir } from "node:fs/promises";
+import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
-const developmentPreviewMeta =
-  /<meta(?=[^>]*\bname=["']codex-preview["'])(?=[^>]*\bcontent=["']development["'])[^>]*>/i;
-const templateRoot = new URL("../", import.meta.url);
-const previewRoot = new URL("../app/_sites-preview/", import.meta.url);
-
-async function render() {
+async function loadWorker() {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
-  const { default: worker } = await import(workerUrl.href);
+  return (await import(workerUrl.href)).default;
+}
 
+async function render(pathname) {
+  const worker = await loadWorker();
   return worker.fetch(
-    new Request("http://localhost/", {
-      headers: { accept: "text/html" },
-    }),
+    new Request(new URL(pathname, "http://localhost"), { headers: { accept: "text/html" } }),
     {
-      ASSETS: {
-        fetch: async () => new Response("Not found", { status: 404 }),
-      },
+      ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) },
     },
     {
       waitUntil() {},
@@ -28,64 +22,63 @@ async function render() {
   );
 }
 
-test("server-renders the starter loading skeleton", async () => {
-  const response = await render();
-  assert.equal(response.status, 200);
-  assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
+const routeExpectations = [
+  ["/", ["ดวงวันนี้", "แตะไพ่เพื่อเปิดดวง"]],
+  ["/today", ["ราหูโคจรทับดาวเสาร์", "แนะนำอุปกรณ์", "เพื่อแก้เคล็ด"]],
+  ["/exercise?mode=main", ["เริ่มออกกำลังกาย", "ท่าหมุนไหล่", "วงไปด้านหน้า"]],
+  ["/complete", ["เริ่ดเลยล่ะ!", "เสริมดวง", "Add LINE OA"]],
+  ["/challenge", ["Challenge ต่อไป", "ประโยชน์", "เริ่ม Challenge!"]],
+  ["/exercise?mode=challenge", ["Challenge เริ่มแล้ว", "ตั้งท่า Plank", "แตะไหล่ซ้าย-ขวา"]],
+];
 
+for (const [route, expectedCopy] of routeExpectations) {
+  test(`server-renders ${route}`, async () => {
+    const response = await render(route);
+    assert.equal(response.status, 200);
+    assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
+
+    const html = await response.text();
+    for (const copy of expectedCopy) assert.match(html, new RegExp(copy));
+    assert.doesNotMatch(html, /Your site is taking shape|Building your site|codex-preview/i);
+  });
+}
+
+test("emits FITFORTUNE metadata", async () => {
+  const response = await render("/");
   const html = await response.text();
-  assert.match(html, developmentPreviewMeta);
-  assert.match(html, /<title>Your site is taking shape<\/title>/i);
-  assert.match(html, /Building your site/);
-  assert.match(html, /Your site is taking shape/);
-  assert.match(
-    html,
-    /Your first version will appear here automatically when it’s ready\./,
-  );
-  assert.doesNotMatch(html, /Codex/);
-  assert.match(html, /react-loading-skeleton/);
-  assert.match(html, /role="status"/);
+  assert.match(html, /<html lang="th">/i);
+  assert.match(html, /<title>FITFORTUNE — เปิดดวง ฟิตสุขภาพ<\/title>/i);
+  assert.match(html, /og-v3\.png/i);
+  assert.match(html, /favicon\.svg/i);
 });
 
-test("keeps the loading skeleton scoped and disposable", async () => {
-  const [preview, css, page, layout, packageJson, files] = await Promise.all([
-    readFile(new URL("SkeletonPreview.tsx", previewRoot), "utf8"),
-    readFile(new URL("preview.css", previewRoot), "utf8"),
-    readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../package.json", import.meta.url), "utf8"),
-    readdir(previewRoot),
-  ]);
+test("all referenced runtime assets exist", async () => {
+  const sourceFiles = [
+    "app/globals.css",
+    "app/page.tsx",
+    "app/today/page.tsx",
+    "app/challenge/page.tsx",
+    "components/fitfortune/ui.tsx",
+    "components/fitfortune/congrats-actions.tsx",
+    "content/fitfortune.ts",
+  ];
 
-  assert.deepEqual(files.sort(), ["SkeletonPreview.tsx", "preview.css"]);
-  assert.match(preview, /from "react-loading-skeleton"/);
-  assert.match(preview, /baseColor="#eceae7"/);
-  assert.match(preview, /highlightColor="#f9f8f6"/);
-  assert.match(preview, /duration=\{2\.8\}/);
-  assert.match(preview, /sites-skeleton-search-placeholder/);
-  assert.match(packageJson, /"react-loading-skeleton": "3\.5\.0"/);
+  const contents = await Promise.all(sourceFiles.map((file) => readFile(new URL(`../${file}`, import.meta.url), "utf8")));
+  const assetPaths = new Set(contents.flatMap((source) => [...source.matchAll(/\/assets\/[A-Za-z0-9_./-]+/g)].map(([path]) => path)));
 
-  const shellIndex = preview.indexOf('className="sites-skeleton-shell"');
-  const statusIndex = preview.indexOf('className="sites-skeleton-status"');
-  assert.ok(shellIndex >= 0 && statusIndex > shellIndex);
-  assert.match(css, /position:\s*fixed/);
-  assert.match(css, /inset:\s*0/);
-  assert.match(css, /opacity:\s*0\.52/);
-  assert.match(css, /prefers-reduced-motion:\s*reduce/);
-  assert.doesNotMatch(css, /#020617|canvas|pets|progress/i);
-  assert.doesNotMatch(
-    preview,
-    /loading-spinner|status-mark|status-progress|canvas|cookie|random/i,
-  );
+  assert.ok(assetPaths.size > 0);
+  await Promise.all([...assetPaths].map((assetPath) => access(new URL(`../public${assetPath}`, import.meta.url))));
+});
 
-  assert.match(page, /export const metadata:\s*Metadata/);
-  assert.match(page, /"codex-preview": "development"/);
-  assert.match(page, /<SkeletonPreview \/>/);
-  assert.match(layout, /title:\s*"Starter Project"/);
-  assert.doesNotMatch(layout, /codex-preview|_sites-preview|themeColor|\bViewport\b/);
-  assert.doesNotMatch(css, /(^|\s)(html|body)\s*\{/m);
+test("starter-only source files are removed", async () => {
+  const removedFiles = [
+    "app/chatgpt-auth.ts",
+    "db/index.ts",
+    "examples/d1/app/api/notes/route.ts",
+    "drizzle.config.ts",
+  ];
 
-  await assert.rejects(
-    access(new URL("public/_sites-preview", templateRoot)),
-  );
+  for (const file of removedFiles) {
+    await assert.rejects(access(new URL(`../${file}`, import.meta.url)));
+  }
 });

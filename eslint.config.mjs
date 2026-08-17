@@ -35,6 +35,10 @@ const eslintConfig = defineConfig([
         version: "detect",
       },
     },
+    rules: {
+      // FITFORTUNE uses precomposed local artwork with CSS-controlled cropping.
+      "@next/next/no-img-element": "off",
+    },
   },
 ]);
 

@@ -1,12 +1,7 @@
-import { PageShell, PrimaryLink, TopBar, VideoPreview } from "../../components/fitfortune-ui";
+import { equipmentRecommendations } from "@/content/fitfortune";
+import { PageShell, PrimaryLink, RecommendationGrid, TopBar, VideoPreview } from "@/components/fitfortune/ui";
 
 export default function ChallengePage() {
-  const recommendations = [
-    { label: "ร่างกาย", src: "/assets/recommendations/Rec1.png" },
-    { label: "หัวใจ", src: "/assets/recommendations/Rec2.png" },
-    { label: "วิญญาณ", src: "/assets/recommendations/Rec3.png" },
-  ];
-
   return (
     <PageShell className="challenge-page">
       <TopBar backHref="/complete" label="" />
@@ -24,14 +19,7 @@ export default function ChallengePage() {
 
         <section className="white-panel challenge-video-panel">
           <div className="resource-title"><span>แนะนำอุปกรณ์</span></div>
-          <div className="recommendation-list challenge-recommendation-list">
-            {recommendations.map((item) => (
-              <div className="recommendation-item" key={item.label}>
-                <img src={item.src} alt="" />
-                <span>{item.label}</span>
-              </div>
-            ))}
-          </div>
+          <RecommendationGrid items={equipmentRecommendations} className="challenge-recommendation-list" />
         </section>
 
         <section className="white-panel benefits-card">

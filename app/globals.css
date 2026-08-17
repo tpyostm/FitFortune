@@ -58,7 +58,6 @@ a, button { touch-action: manipulation; }
     radial-gradient(circle at 90% 78%, rgba(250,202,255,.32), transparent 26rem),
     #eee3f9;
 }
-.ambient { display: none; }
 .phone-canvas {
   width: min(100%, 390px);
   min-height: max(100svh, 812px);
@@ -292,20 +291,10 @@ a, button { touch-action: manipulation; }
 .resource-title { height: 23px; display: flex; align-items: center; gap: 8px; color: #6b3589; font-size: 9px; text-align: center; }
 .resource-title::before,.resource-title::after { content: ""; flex: 1; height: 1px; background: #cfafe9; }
 .resource-title span { white-space: nowrap; }
-.material-list { display: flex; justify-content: center; gap: 15px; }
-.material-item { min-width: 0; flex: 1; display: flex; flex-direction: column; align-items: center; gap: 5px; color: #633281; text-align: center; font-size: 9px; }
-.material-icon { min-width: 49px; height: 30px; display: grid; place-items: center; color: #66368a; border-radius: 9px; background: linear-gradient(145deg,#eee2fb,#c7a5e6); box-shadow: inset 0 1px rgba(255,255,255,.8); font: 18px Arial,sans-serif; }
 .recommendation-list { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; padding: 1px 3px 5px; }
 .recommendation-item { min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 2px; color: #5b2877; font-size: 12px; font-weight: 900; }
 .recommendation-item img { width: 58px; height: 46px; object-fit: contain; filter: drop-shadow(0 4px 5px rgba(84,35,122,.12)); }
-.video-preview { height: 76px; position: relative; display: grid; grid-template-columns: 100px minmax(0,1fr); align-items: center; overflow: hidden; border-radius: 11px; border: 1px solid #c5a0e5; background: linear-gradient(100deg,#f6eaff 0 37%,#e8dcf4 37% 100%); }
-.video-mascot { width: 94px; height: 74px; object-fit: contain; justify-self: center; }
-.play-button { position: absolute; left: 64px; top: 22px; width: 32px; height: 32px; display: grid; place-items: center; padding-left: 2px; color: white; border: 1px solid white; border-radius: 50%; background: rgba(80,67,84,.77); box-shadow: 0 3px 8px rgba(70,50,80,.24); font-size: 10px; }
-.video-copy { width: 100%; min-width: 0; min-height: 100%; display: grid; place-items: center; padding: 5px 6px; color: #4d2465; font-size: clamp(20px,6.3vw,24px); font-weight: 900; line-height: 1.15; text-align: center; overflow-wrap: anywhere; }
-.video-copy b,.video-copy small { display: block; }
-.video-copy b { width: 100%; }
-.video-copy small { margin-top: 3px; }
-.video-preview.has-cover { height: auto; aspect-ratio: 3.28 / 1; display: block; border: 0; border-radius: 14px; background: transparent; }
+.video-preview { width: 100%; position: relative; display: block; overflow: hidden; aspect-ratio: 3.28 / 1; border: 0; border-radius: 14px; background: transparent; }
 .video-cover { width: 107%; max-width: none; height: auto; display: block; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); }
 
 /* Exercise timer */
@@ -376,7 +365,7 @@ button.complete-action-card { width: 100%; }
 .challenge-heading h1 { margin: 0; color: var(--brown-900); font-size: 25px; line-height: 1.35; }
 .challenge-heading h1 span { color: var(--gold-500); }
 .challenge-heading p { margin: 5px 0 11px; font-size: 15px; line-height: 1.35; }
-.video-preview.has-cover.challenge-cover { height: auto; aspect-ratio: 1.94 / 1; border-radius: 15px; }
+.video-preview.challenge-cover { aspect-ratio: 1.94 / 1; border-radius: 15px; }
 .challenge-cover .video-cover { width: 106%; }
 .challenge-video-panel,.benefits-card { margin-top: 11px; }
 .challenge-video-panel { min-height: 116px; padding: 4px 10px 9px; }

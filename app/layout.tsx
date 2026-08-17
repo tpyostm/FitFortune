@@ -15,6 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase: baseUrl,
     title,
     description,
+    icons: { icon: "/favicon.svg" },
     openGraph: { title, description, type: "website", images: [{ url: socialImage, width: 1734, height: 907, alt: "FITFORTUNE เปิดดวง ฟิตสุขภาพ" }] },
     twitter: { card: "summary_large_image", title, description, images: [socialImage] },
   };

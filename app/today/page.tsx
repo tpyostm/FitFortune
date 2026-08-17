@@ -1,12 +1,7 @@
-import { Mascot, PageShell, PrimaryLink, TopBar, VideoPreview } from "../../components/fitfortune-ui";
+import { equipmentRecommendations } from "@/content/fitfortune";
+import { Mascot, PageShell, PrimaryLink, RecommendationGrid, TopBar, VideoPreview } from "@/components/fitfortune/ui";
 
 export default function TodayPage() {
-  const recommendations = [
-    { label: "ร่างกาย", src: "/assets/recommendations/Rec1.png" },
-    { label: "หัวใจ", src: "/assets/recommendations/Rec2.png" },
-    { label: "วิญญาณ", src: "/assets/recommendations/Rec3.png" },
-  ];
-
   return (
     <PageShell className="today-page">
       <TopBar label="✦ ดวงสุขภาพวันนี้ ✦" />
@@ -30,14 +25,7 @@ export default function TodayPage() {
 
         <section className="today-resources">
           <div className="resource-title"><span>แนะนำอุปกรณ์</span></div>
-          <div className="recommendation-list">
-            {recommendations.map((item) => (
-              <div className="recommendation-item" key={item.label}>
-                <img src={item.src} alt="" />
-                <span>{item.label}</span>
-              </div>
-            ))}
-          </div>
+          <RecommendationGrid items={equipmentRecommendations} />
           <div className="resource-title"><span>คลิปแนะนำ (สำหรับทุกกลุ่ม)</span></div>
           <VideoPreview label="หมุนไหล่คลายปวด ดูคลิป (30 วินาที)" coverSrc="/assets/video/shoulder-clip-cover.png" />
         </section>
