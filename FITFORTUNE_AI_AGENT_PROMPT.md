@@ -978,3 +978,15 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
 - Remove unused starter authentication, D1/Drizzle examples, dependencies, and documentation; rewrite the README for the actual app.
 - Validate the final app with ESLint, TypeScript, build, 9/9 automated tests, responsive Browser QA, full timer completion, asset loading, console logs, and baseline accessibility checks.
 - Record detailed findings and the complete test matrix in `docs/QA_REPORT.md`.
+
+---
+
+## 49. GitHub Pages Distribution — 2026-08-17
+
+- Add a separate Vite client build for GitHub Pages while keeping the existing vinext/OpenAI Sites build unchanged.
+- Host the public project under the repository base path `/FitFortune/` and prefix all runtime assets, internal links, timer redirects, and shared URLs accordingly.
+- Map the six app variants to static deep-link routes, including separate `/exercise/` and `/exercise/challenge/` paths so both timer modes work without a server.
+- Generate route-level `index.html` files, `404.html`, and `.nojekyll` in `dist-pages/`.
+- Add a GitHub Actions workflow using GitHub's documented Pages actions and Node.js 22.
+- Validate the Pages build across all six routes at `390 × 844`, with no broken images, horizontal overflow, root-path asset leaks, or browser console warnings/errors.
+- Verify the card-opening navigation, main and challenge timer links, and a full 30-second timer redirect to the Pages completion route.

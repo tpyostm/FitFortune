@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { assetPath, navigateTo } from "@/components/fitfortune/paths";
 
 export default function Home() {
   const [opening, setOpening] = useState(false);
@@ -13,13 +14,13 @@ export default function Home() {
   function openFortune() {
     if (opening) return;
     setOpening(true);
-    navigationTimer.current = window.setTimeout(() => window.location.assign("/today"), 1180);
+    navigationTimer.current = window.setTimeout(() => navigateTo("/today"), 1180);
   }
 
   return (
     <main className="app-stage landing-stage">
       <section className="phone-canvas landing-canvas">
-        <img className="effect-sparkle-sheet landing-sparkle-sheet" src="/assets/effects/Effect2.png" alt="" aria-hidden="true" />
+        <img className="effect-sparkle-sheet landing-sparkle-sheet" src={assetPath("/assets/effects/Effect2.png")} alt="" aria-hidden="true" />
         <div className="sparkles" aria-hidden="true">
           <span>★</span><span>✦</span><span>★</span><span>✧</span><span>★</span><span>✦</span>
         </div>
@@ -31,7 +32,7 @@ export default function Home() {
         </header>
 
         <div className="landing-card-scene">
-          <img className="landing-orbit" src="/assets/effects/Effect1.png" alt="" aria-hidden="true" />
+          <img className="landing-orbit" src={assetPath("/assets/effects/Effect1.png")} alt="" aria-hidden="true" />
           <span className="leaf-silhouette leaf-left" aria-hidden="true" />
           <span className="leaf-silhouette leaf-right" aria-hidden="true" />
           <span className="card-shadow-layer card-shadow-left" aria-hidden="true" />
@@ -45,10 +46,10 @@ export default function Home() {
             <span className="card-aura" />
             <span className="card-flipper">
               <span className="card-face card-back">
-                <img src="/assets/cards/card-back.png" alt="ไพ่ปริศนา FITFORTUNE" />
+                <img src={assetPath("/assets/cards/card-back.png")} alt="ไพ่ปริศนา FITFORTUNE" />
               </span>
               <span className="card-face card-front">
-                <img src="/assets/cards/card-front.png" alt="ไพ่ FITFORTUNE ที่เปิดแล้ว" />
+                <img src={assetPath("/assets/cards/card-front.png")} alt="ไพ่ FITFORTUNE ที่เปิดแล้ว" />
               </span>
             </span>
           </button>

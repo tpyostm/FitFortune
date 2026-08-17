@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { exercises, poseFrameIntervalMs } from "@/content/fitfortune";
 import { Mascot, PageShell, TopBar } from "./ui";
+import { navigateTo } from "./paths";
 
 const sessionStorageKey = "fitfortune_sessions";
 
@@ -55,7 +56,7 @@ export function ExerciseTimer({ challenge = false }: { challenge?: boolean }) {
       // The experience still works when browser storage is unavailable.
     }
 
-    const next = window.setTimeout(() => window.location.assign("/complete"), 850);
+    const next = window.setTimeout(() => navigateTo("/complete"), 850);
     return () => window.clearTimeout(next);
   }, [timeLeft, hasStarted, mode, exercise.durationSec]);
 

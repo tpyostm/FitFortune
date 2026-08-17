@@ -78,3 +78,12 @@
 
 - Click counters เป็นยอดเฉพาะ browser/device เพราะยังไม่มี backend
 - ไม่กดยืนยันแชร์จริงระหว่าง automated browser QA เพื่อไม่เปิด share sheet หรือส่งข้อมูลภายนอก แต่ตรวจปุ่ม, fallback code และ link structure แล้ว
+
+## GitHub Pages QA
+
+- เพิ่ม static client build แยกที่ `npm run build:pages` โดยใช้ component และ style ชุดเดียวกับแอพหลัก
+- ตรวจครบ 6 route ภายใต้ base path `/FitFortune/`
+- ไม่พบรูปเสีย, horizontal overflow, asset ที่หลุดไป root path หรือ console error/warning
+- ตรวจการเปิดไพ่จากหน้าแรกไปหน้า Today และลิงก์เข้า Timer ทั้ง Main/Challenge แล้ว
+- จับเวลา Main ครบ 30 วินาทีและ redirect ไป `/FitFortune/complete/` สำเร็จ
+- `npm test` ของ vinext/OpenAI Sites ยังคงผ่าน 9/9 หลังเพิ่ม GitHub Pages
