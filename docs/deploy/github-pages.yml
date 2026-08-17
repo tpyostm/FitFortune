@@ -1,0 +1,66 @@
+# Deploy workflow for the FITFORTUNE static build.
+#
+# This file does NOT belong in this repository. Copy it to
+# `tpyostm/tpyostm.github.io` as `.github/workflows/deploy.yml`.
+#
+# GitHub Pages serves a user-site repo from the domain root, which is what lets
+# this project skip `basePath` entirely (see next.config.ts for why that
+# matters). The source stays here in `tpyostm/FitFortune`; the workflow checks
+# it out, builds it, and publishes the result. Both repos are public, so the
+# checkout needs no extra token.
+#
+# One-time setup in tpyostm.github.io:
+#   Settings -> Pages -> Build and deployment -> Source: "GitHub Actions"
+
+name: Deploy FITFORTUNE
+
+on:
+  # Publish on demand from the Actions tab. A push to FitFortune cannot trigger
+  # a workflow in another repo on its own — wiring that up needs a PAT with
+  # `actions: write` stored here and a `repository_dispatch` step over there.
+  workflow_dispatch:
+  # Safety net so a forgotten manual run still ships eventually.
+  schedule:
+    - cron: "0 3 * * 1"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Let a running deploy finish rather than dropping a queued one.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out FITFORTUNE source
+        uses: actions/checkout@v4
+        with:
+          repository: tpyostm/FitFortune
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build:pages
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/client
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

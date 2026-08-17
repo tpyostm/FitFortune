@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Mascot, PageShell } from "./ui";
+import { useSearchFlag } from "./use-search-flag";
 
 type CompleteAction = "challenge" | "share";
 type CompleteActionCounts = Record<CompleteAction, number>;
@@ -27,7 +28,8 @@ function readClickCounts(): CompleteActionCounts {
   }
 }
 
-export function CongratsActions({ showCounts = false }: { showCounts?: boolean }) {
+export function CongratsActions({ showCounts: showCountsProp = false }: { showCounts?: boolean }) {
+  const showCounts = useSearchFlag("counts", "1", showCountsProp);
   const [shareStatus, setShareStatus] = useState("");
   const [clickCounts, setClickCounts] = useState<CompleteActionCounts>(emptyClickCounts);
 

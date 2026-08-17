@@ -27,6 +27,7 @@
 npm run dev
 npm run lint
 npm run build
+npm run build:pages
 npm test
 ```
 
@@ -41,3 +42,17 @@ npm test
 ## การเผยแพร่
 
 โปรเจกต์นี้ deploy ผ่าน OpenAI Sites โดยใช้ค่าใน `.openai/hosting.json`
+
+### GitHub Pages
+
+`npm run build:pages` สร้าง static export ลง `dist/client/` (`BUILD_TARGET=pages` เปิด `output: "export"`
+ส่วน build ปกติยังเป็น Cloudflare Worker ซึ่ง `npm test` ใช้ render)
+
+เว็บเสิร์ฟจาก repo `tpyostm/tpyostm.github.io` ที่ domain root ไม่ใช่ subpath —
+เพราะ vinext 1.0.0-beta.2 ใช้ `basePath` ร่วมกับ `output: "export"` ไม่ได้
+(ดูเหตุผลใน `next.config.ts`) ตัว source ยังอยู่ repo นี้ workflow ฝั่งโน้น
+จะ checkout มา build ให้ — ไฟล์ workflow อยู่ที่ `docs/deploy/github-pages.yml`
+
+ข้อจำกัดของ static export: `?mode=challenge` และ `?counts=1` อ่านตอน build ไม่ได้
+หน้าที่ prerender มาจึงเป็นค่า default แล้ว `useSearchFlag` แก้ค่าจาก URL ฝั่ง client
+ก่อน browser paint
