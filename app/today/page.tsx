@@ -27,7 +27,11 @@ export default function TodayPage() {
           <div className="resource-title"><span>แนะนำอุปกรณ์</span></div>
           <RecommendationGrid items={equipmentRecommendations} />
           <div className="resource-title"><span>คลิปแนะนำ (สำหรับทุกกลุ่ม)</span></div>
-          <VideoPreview label="หมุนไหล่คลายปวด ดูคลิป (30 วินาที)" coverSrc="/assets/video/shoulder-clip-cover.png" />
+          <VideoPreview
+            label="หมุนไหล่คลายปวด ดูคลิป (30 วินาที)"
+            coverSrc="/assets/video/shoulder-clip-cover.png"
+            youtubeId="6wYkaGL_pBc"
+          />
         </section>
       </div>
       <div className="bottom-action">

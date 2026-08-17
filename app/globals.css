@@ -299,8 +299,70 @@ a, button { touch-action: manipulation; }
 .recommendation-list { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; padding: 1px 3px 5px; }
 .recommendation-item { min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 2px; color: #5b2877; font-size: 12px; font-weight: 900; }
 .recommendation-item img { width: 58px; height: 46px; object-fit: contain; filter: drop-shadow(0 4px 5px rgba(84,35,122,.12)); }
-.video-preview { width: 100%; position: relative; display: block; overflow: hidden; aspect-ratio: 3.28 / 1; border: 0; border-radius: 14px; background: transparent; }
+.video-preview { width: 100%; position: relative; display: block; overflow: hidden; aspect-ratio: 3.28 / 1; border: 0; border-radius: 14px; background: transparent; padding: 0; }
+button.video-preview { cursor: pointer; }
+button.video-preview:focus-visible { outline: 3px solid #b977f3; outline-offset: 3px; }
 .video-cover { width: 107%; max-width: none; height: auto; display: block; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); }
+
+/* Clip lightbox — portalled to <body>, so it sits outside the zoomed canvas. */
+.video-modal {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(28, 8, 44, .82);
+  backdrop-filter: blur(3px);
+  animation: modalFade .18s ease-out;
+}
+.video-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  display: block;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.video-modal-frame {
+  /* YouTube Shorts are 9:16; cap by height so the frame never outgrows the
+     viewport on a short window. */
+  width: min(100%, calc((100svh - 40px) * 9 / 16), 420px);
+  position: relative;
+  z-index: 1;
+  aspect-ratio: 9 / 16;
+  border-radius: 16px;
+  background: #000;
+  box-shadow: 0 24px 60px rgba(0,0,0,.5);
+}
+.video-modal-frame iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+  border-radius: inherit;
+}
+.video-modal-close {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  z-index: 2;
+  right: -6px;
+  top: -48px;
+  display: grid;
+  place-items: center;
+  color: #4a1668;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,.92);
+  box-shadow: 0 4px 14px rgba(0,0,0,.35);
+  font-size: 17px;
+  font-weight: 900;
+  cursor: pointer;
+}
+.video-modal-close:focus-visible { outline: 3px solid #d8b4fe; outline-offset: 2px; }
+@keyframes modalFade { from { opacity: 0; } to { opacity: 1; } }
 
 /* Exercise timer */
 .timer-content { padding-top: 0; padding-bottom: 154px; display: flex; flex-direction: column; align-items: center; }

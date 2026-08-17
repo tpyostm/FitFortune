@@ -70,17 +70,6 @@ export function RecommendationGrid({
   );
 }
 
-export function VideoPreview({
-  label,
-  coverSrc,
-  className,
-}: {
-  label: string;
-  coverSrc: string;
-} & ClassNameProp) {
-  return (
-    <div className={classNames("video-preview", className)} role="img" aria-label={`${label} (ภาพปกคลิป)`}>
-      <img className="video-cover" src={assetPath(coverSrc)} alt="" aria-hidden="true" />
-    </div>
-  );
-}
+// Lives in its own module because it holds modal state, and re-exported here
+// so the pages keep importing every shared piece from one place.
+export { VideoPreview } from "./video-preview";
