@@ -943,3 +943,11 @@ Backgrounds use cover sizing and centered positioning with only a very light tra
 - On mobile viewports up to `720px` tall, move the complete Page 5 bottom action group downward by changing its bottom offset to `75px`.
 - Keep the normal-height Page 5 position unchanged while guaranteeing that the `เริ่ม Challenge!` button no longer overlaps the benefits card on the compact `760px` phone canvas.
 - Preserve the button, helper copy, transparent background, and challenge navigation behavior.
+
+---
+
+## 46. Page 5 Compact CTA Gap Alignment — 2026-08-17
+
+- Move the Page 5 bottom action group down by another `4px` on mobile viewports up to `720px` tall, changing the compact-screen bottom offset from `75px` to `71px`.
+- Increase the visible clearance below the benefits card from approximately `8px` to `12px`, matching the spacing rhythm used between other Page 5 sections.
+- Keep the normal-height CTA position unchanged and preserve a non-overlapping layout at compact heights.
