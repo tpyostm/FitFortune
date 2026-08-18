@@ -95,18 +95,18 @@ export function CongratsActions({ showCounts = false }: { showCounts?: boolean }
         <div className="action-stack">
           <a className="complete-action-card" href={appHref("/challenge")} onClick={() => recordClick("challenge")}>
             <img className="action-icon" src={assetPath("/assets/recommendations/Rec4.png")} alt="" aria-hidden="true" />
-            <b>เสริมดวง<br />เฉพาะตัว</b>
+            <b>ไปกันต่อ</b>
           </a>
           <button className="complete-action-card" type="button" onClick={share}>
             <img className="action-icon" src={assetPath("/assets/recommendations/Rec5.png")} alt="" aria-hidden="true" />
-            <b>ส่งต่อ<br />ให้เพื่อน</b>
+            <b>ชวนเพื่อน<br />มาเสริมดวง</b>
           </button>
           {shareStatus && <p className="share-status" role="status">{shareStatus}</p>}
           {showCounts && (
             <aside className="local-click-counts" aria-label="ยอดกดในอุปกรณ์นี้">
               <strong>ยอดกดในอุปกรณ์นี้</strong>
-              <span>เสริมดวงเฉพาะตัว: <b>{clickCounts.challenge}</b> ครั้ง</span>
-              <span>ส่งต่อให้เพื่อน: <b>{clickCounts.share}</b> ครั้ง</span>
+              <span>ไปกันต่อ: <b>{clickCounts.challenge}</b> ครั้ง</span>
+              <span>ชวนเพื่อนมาเสริมดวง: <b>{clickCounts.share}</b> ครั้ง</span>
               <small>ยอดนี้เก็บเฉพาะในเบราว์เซอร์ปัจจุบัน</small>
             </aside>
           )}
