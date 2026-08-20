@@ -1,0 +1,16 @@
+{
+  // Counter API for the /complete actions. Deployed on its own; the site
+  // itself stays on GitHub Pages.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "fitfortune-counter",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-01",
+  "observability": { "enabled": true },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "fitfortune-counts",
+      "database_id": "e690a8af-6011-46fa-b734-990c9ba0d11c"
+    }
+  ]
+}

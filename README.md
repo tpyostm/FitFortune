@@ -36,8 +36,19 @@ npm test
 ## ข้อมูลที่เก็บในเครื่องผู้ใช้
 
 - ประวัติการออกกำลังกายล่าสุดเก็บใน `localStorage` สูงสุด 20 รายการ
-- ยอดกดหน้า complete เป็นยอดเฉพาะ browser/device นี้
-- เปิด `/complete?counts=1` เพื่อดูแผงยอดกดสำหรับตรวจสอบ
+
+## ยอดกดปุ่มหน้า complete
+
+ยอดกด "ไปกันต่อ" และ "ชวนเพื่อนมาเสริมดวง" นับรวมจากผู้ใช้ทุกคน เก็บใน Cloudflare D1
+ผ่าน Worker เล็ก ๆ ใน `counter-worker/` (เว็บยังเป็น static บน GitHub Pages เรียก API นี้เฉย ๆ)
+
+- ดูยอด: เปิด `/complete?counts=1`
+- API: `GET /counts`, `POST /hit/challenge|share` ที่ `https://fitfortune-counter.tpyostm.workers.dev`
+- deploy worker: `npx wrangler deploy --config counter-worker/wrangler.jsonc`
+- รีเซ็ตยอด: `npx wrangler d1 execute fitfortune-counts --remote --config counter-worker/wrangler.jsonc --command "DELETE FROM counts"`
+
+CORS จำกัดไว้ที่ origin ของเว็บ และรับเฉพาะชื่อ action สองตัวที่รู้จัก แต่ปลายทางเป็น
+public endpoint จึงยังยิงตรงเพื่อปั่นยอดได้ — ถือเป็นตัวเลขคร่าว ๆ ไม่ใช่ตัวเลขที่กันการปลอมได้
 
 ## การเผยแพร่
 
